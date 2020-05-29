@@ -24,13 +24,14 @@ import butterknife.OnClick;
 import cn.wildfire.chat.kit.group.GroupViewModel;
 import cn.wildfire.chat.kit.widget.OptionItemView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.GroupInfo;
 
 public class GroupManageFragment extends Fragment {
     private GroupInfo groupInfo;
-    @BindView(R.id.joinOptionItemView)
+    @BindView(R2.id.joinOptionItemView)
     OptionItemView joinOptionItemView;
-    @BindView(R.id.searchOptionItemView)
+    @BindView(R2.id.searchOptionItemView)
     OptionItemView searchOptionItemView;
     private GroupViewModel groupViewModel;
 
@@ -75,14 +76,14 @@ public class GroupManageFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.managerOptionItemView)
+    @OnClick(R2.id.managerOptionItemView)
     void showGroupManagerSetting() {
         Intent intent = new Intent(getActivity(), GroupManagerListActivity.class);
         intent.putExtra("groupInfo", groupInfo);
         startActivity(intent);
     }
 
-    @OnClick(R.id.muteOptionItemView)
+    @OnClick(R2.id.muteOptionItemView)
     void showGroupMuteSetting() {
         Intent intent = new Intent(getActivity(), GroupMuteActivity.class);
         intent.putExtra("groupInfo", groupInfo);
@@ -90,14 +91,14 @@ public class GroupManageFragment extends Fragment {
 
     }
 
-    @OnClick(R.id.permissionOptionItemView)
+    @OnClick(R2.id.permissionOptionItemView)
     void showMemberPermissionSetting() {
         Intent intent = new Intent(getActivity(), GroupMemberPermissionActivity.class);
         intent.putExtra("groupInfo", groupInfo);
         startActivity(intent);
     }
 
-    @OnClick(R.id.joinOptionItemView)
+    @OnClick(R2.id.joinOptionItemView)
     void showJoinTypeSetting() {
         new MaterialDialog.Builder(getActivity())
             .items(R.array.group_join_type)
@@ -114,7 +115,7 @@ public class GroupManageFragment extends Fragment {
             .show();
     }
 
-    @OnClick(R.id.searchOptionItemView)
+    @OnClick(R2.id.searchOptionItemView)
     void showSearchSetting() {
         new MaterialDialog.Builder(getActivity())
             .items(R.array.group_search_type)

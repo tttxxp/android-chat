@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.GroupInfo;
 import cn.wildfirechat.model.UserInfo;
 import cn.wildfirechat.remote.ChatManager;
@@ -98,13 +99,13 @@ public class GroupMemberListAdapter extends RecyclerView.Adapter<GroupMemberList
     }
 
     class MemberViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.portraitImageView)
+        @BindView(R2.id.portraitImageView)
         ImageView portraitImageView;
-        @BindView(R.id.nameTextView)
+        @BindView(R2.id.nameTextView)
         TextView nameTextView;
         private UserInfo userInfo;
 
-        @OnClick(R.id.portraitImageView)
+        @OnClick(R2.id.portraitImageView)
         void onClick() {
             if (onMemberClickListener == null) {
                 return;

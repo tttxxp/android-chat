@@ -21,14 +21,15 @@ import cn.wildfire.chat.kit.contact.viewholder.header.HeaderViewHolder;
 import cn.wildfire.chat.kit.widget.ProgressFragment;
 import cn.wildfire.chat.kit.widget.QuickIndexBar;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public abstract class BaseUserListFragment extends ProgressFragment implements QuickIndexBar.OnLetterUpdateListener, UserListAdapter.OnUserClickListener, UserListAdapter.OnHeaderClickListener, UserListAdapter.OnFooterClickListener {
 
-    @BindView(R.id.usersRecyclerView)
+    @BindView(R2.id.usersRecyclerView)
     RecyclerView usersRecyclerView;
-    @BindView(R.id.quickIndexBar)
+    @BindView(R2.id.quickIndexBar)
     QuickIndexBar quickIndexBar;
-    @BindView(R.id.indexLetterTextView)
+    @BindView(R2.id.indexLetterTextView)
     TextView indexLetterTextView;
 
     protected UserListAdapter userListAdapter;

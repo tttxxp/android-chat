@@ -14,12 +14,13 @@ import cn.wildfire.chat.kit.annotation.StatusNotificationType;
 import cn.wildfire.chat.kit.conversationlist.notification.PCOnlineStatusNotification;
 import cn.wildfire.chat.kit.conversationlist.notification.StatusNotification;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.PCOnlineInfo;
 
-@LayoutRes(resId = R.layout.conversationlist_item_notification_pc_online)
+@LayoutRes(resId = R2.layout.conversationlist_item_notification_pc_online)
 @StatusNotificationType(PCOnlineStatusNotification.class)
 public class PCOnlineNotificationViewHolder extends StatusNotificationViewHolder {
-    @BindView(R.id.statusTextView)
+    @BindView(R2.id.statusTextView)
     TextView statusTextView;
     PCOnlineInfo pcOnlineInfo;
 
@@ -49,7 +50,7 @@ public class PCOnlineNotificationViewHolder extends StatusNotificationViewHolder
         statusTextView.setText(desc);
     }
 
-    @OnClick(R.id.statusTextView)
+    @OnClick(R2.id.statusTextView)
     public void showPCSessionInfo() {
         Intent intent = new Intent(fragment.getActivity(), PCSessionActivity.class);
         intent.putExtra("pcOnlineInfo", pcOnlineInfo);

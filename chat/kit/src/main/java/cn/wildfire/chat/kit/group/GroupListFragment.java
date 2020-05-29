@@ -19,17 +19,18 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfire.chat.kit.conversation.ConversationActivity;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.Conversation;
 import cn.wildfirechat.model.GroupInfo;
 import cn.wildfirechat.remote.ChatManager;
 import cn.wildfirechat.remote.GetGroupsCallback;
 
 public class GroupListFragment extends Fragment implements OnGroupItemClickListener {
-    @BindView(R.id.groupRecyclerView)
+    @BindView(R2.id.groupRecyclerView)
     RecyclerView recyclerView;
-    @BindView(R.id.tipTextView)
+    @BindView(R2.id.tipTextView)
     TextView tipTextView;
-    @BindView(R.id.groupsLinearLayout)
+    @BindView(R2.id.groupsLinearLayout)
     LinearLayout groupsLinearLayout;
 
     private GroupListAdapter groupListAdapter;

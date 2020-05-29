@@ -26,18 +26,19 @@ import cn.wildfire.chat.kit.contact.model.UIUserInfo;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfire.chat.kit.widget.QuickIndexBar;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public abstract class PickUserFragment extends BaseUserListFragment implements QuickIndexBar.OnLetterUpdateListener {
     private SearchAndPickUserFragment searchAndPickUserFragment;
     protected PickUserViewModel pickUserViewModel;
 
-    @BindView(R.id.pickedUserRecyclerView)
+    @BindView(R2.id.pickedUserRecyclerView)
     protected RecyclerView pickedUserRecyclerView;
-    @BindView(R.id.searchEditText)
+    @BindView(R2.id.searchEditText)
     EditText searchEditText;
-    @BindView(R.id.searchFrameLayout)
+    @BindView(R2.id.searchFrameLayout)
     FrameLayout searchUserFrameLayout;
-    @BindView(R.id.hint_view)
+    @BindView(R2.id.hint_view)
     protected View hintView;
 
     private boolean isSearchFragmentShowing = false;
@@ -85,7 +86,7 @@ public abstract class PickUserFragment extends BaseUserListFragment implements Q
         return new PickedUserAdapter();
     }
 
-    @OnFocusChange(R.id.searchEditText)
+    @OnFocusChange(R2.id.searchEditText)
     void onSearchEditTextFocusChange(View view, boolean focus) {
         if (getActivity() == null || getActivity().isFinishing()) {
             return;
@@ -106,7 +107,7 @@ public abstract class PickUserFragment extends BaseUserListFragment implements Q
         }
     }
 
-    @OnTextChanged(value = R.id.searchEditText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
+    @OnTextChanged(value = R2.id.searchEditText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void search(Editable editable) {
         // restore view state
         if (searchAndPickUserFragment == null) {

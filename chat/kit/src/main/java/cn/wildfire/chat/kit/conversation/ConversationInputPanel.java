@@ -55,6 +55,7 @@ import cn.wildfire.chat.kit.widget.InputAwareLayout;
 import cn.wildfire.chat.kit.widget.KeyboardHeightFrameLayout;
 import cn.wildfire.chat.kit.widget.ViewPagerFixed;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.TextMessageContent;
 import cn.wildfirechat.message.TypingMessageContent;
 import cn.wildfirechat.model.Conversation;
@@ -65,32 +66,32 @@ import static cn.wildfire.chat.kit.conversation.ConversationFragment.REQUEST_PIC
 
 public class ConversationInputPanel extends FrameLayout implements IEmotionSelectedListener {
 
-    @BindView(R.id.inputContainerLinearLayout)
+    @BindView(R2.id.inputContainerLinearLayout)
     LinearLayout inputContainerLinearLayout;
-    @BindView(R.id.disableInputTipTextView)
+    @BindView(R2.id.disableInputTipTextView)
     TextView disableInputTipTextView;
 
-    @BindView(R.id.audioImageView)
+    @BindView(R2.id.audioImageView)
     ImageView audioImageView;
-    @BindView(R.id.audioButton)
+    @BindView(R2.id.audioButton)
     Button audioButton;
-    @BindView(R.id.editText)
+    @BindView(R2.id.editText)
     EditText editText;
-    @BindView(R.id.emotionImageView)
+    @BindView(R2.id.emotionImageView)
     ImageView emotionImageView;
-    @BindView(R.id.extImageView)
+    @BindView(R2.id.extImageView)
     ImageView extImageView;
-    @BindView(R.id.sendButton)
+    @BindView(R2.id.sendButton)
     Button sendButton;
 
-    @BindView(R.id.emotionContainerFrameLayout)
+    @BindView(R2.id.emotionContainerFrameLayout)
     KeyboardHeightFrameLayout emotionContainerFrameLayout;
-    @BindView(R.id.emotionLayout)
+    @BindView(R2.id.emotionLayout)
     EmotionLayout emotionLayout;
-    @BindView(R.id.extContainerContainerLayout)
+    @BindView(R2.id.extContainerContainerLayout)
     KeyboardHeightFrameLayout extContainerFrameLayout;
 
-    @BindView(R.id.conversationExtViewPager)
+    @BindView(R2.id.conversationExtViewPager)
     ViewPagerFixed extViewPager;
 
     ConversationExtension extension;
@@ -224,7 +225,7 @@ public class ConversationInputPanel extends FrameLayout implements IEmotionSelec
 
     }
 
-    @OnClick(R.id.extImageView)
+    @OnClick(R2.id.extImageView)
     void onExtImageViewClick() {
         if (audioButton.getTag() != null) {
             return;
@@ -238,7 +239,7 @@ public class ConversationInputPanel extends FrameLayout implements IEmotionSelec
         }
     }
 
-    @OnClick(R.id.emotionImageView)
+    @OnClick(R2.id.emotionImageView)
     void onEmotionImageViewClick() {
 
         if (audioRecorderPanel.isShowingRecorder()) {
@@ -253,7 +254,7 @@ public class ConversationInputPanel extends FrameLayout implements IEmotionSelec
         }
     }
 
-    @OnTextChanged(value = R.id.editText, callback = OnTextChanged.Callback.TEXT_CHANGED)
+    @OnTextChanged(value = R2.id.editText, callback = OnTextChanged.Callback.TEXT_CHANGED)
     void onInputTextChanged(CharSequence s, int start, int before, int count) {
         if (activity.getCurrentFocus() == editText) {
             if (conversation.type == Conversation.ConversationType.Group) {
@@ -305,7 +306,7 @@ public class ConversationInputPanel extends FrameLayout implements IEmotionSelec
         fragment.startActivityForResult(intent, REQUEST_PICK_MENTION_CONTACT);
     }
 
-    @OnTextChanged(value = R.id.editText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
+    @OnTextChanged(value = R2.id.editText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void afterInputTextChanged(Editable editable) {
         if (editText.getText().toString().trim().length() > 0) {
             if (activity.getCurrentFocus() == editText) {
@@ -319,7 +320,7 @@ public class ConversationInputPanel extends FrameLayout implements IEmotionSelec
         }
     }
 
-    @OnClick(R.id.audioImageView)
+    @OnClick(R2.id.audioImageView)
     public void showRecordPanel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (activity.checkCallingOrSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
@@ -341,7 +342,7 @@ public class ConversationInputPanel extends FrameLayout implements IEmotionSelec
         }
     }
 
-    @OnClick(R.id.sendButton)
+    @OnClick(R2.id.sendButton)
     void sendMessage() {
         messageEmojiCount = 0;
         Editable content = editText.getText();

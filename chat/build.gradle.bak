@@ -1,11 +1,19 @@
-apply plugin: 'com.android.library'
-apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        wfc {
+            keyAlias 'wfc'
+            keyPassword 'wildfirechat'
+            storeFile file('../wfc.keystore')
+            storePassword 'wildfirechat'
+        }
+    }
     compileSdkVersion 29
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
     defaultConfig {
+        applicationId "cn.wildfirechat.chat"
         minSdkVersion 17
         targetSdkVersion 29 //当targetversion大于23时，需要使用fileprovider
         versionCode 24
@@ -16,6 +24,7 @@ android {
                 includeCompileClasspath true
             }
         }
+        signingConfig signingConfigs.wfc
 
 //        buildConfigField("String", "BuglyId", '"34490ba79f"')
 
@@ -27,10 +36,12 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.wfc
         }
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.wfc
         }
     }
     compileOptions {
@@ -109,6 +120,7 @@ dependencies {
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'com.google.android:flexbox:2.0.1'
     // kit wfc end
+
 
     // moment start
     //over scroller helper

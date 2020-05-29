@@ -39,6 +39,7 @@ import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.group.GroupViewModel;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.Message;
 import cn.wildfirechat.message.core.MessageDirection;
 import cn.wildfirechat.message.core.MessageStatus;
@@ -53,29 +54,29 @@ import cn.wildfirechat.remote.UserSettingScope;
  * 普通消息
  */
 public abstract class NormalMessageContentViewHolder extends MessageContentViewHolder {
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.errorLinearLayout)
+    @BindView(R2.id.errorLinearLayout)
     LinearLayout errorLinearLayout;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.progressBar)
+    @BindView(R2.id.progressBar)
     ProgressBar progressBar;
-    @BindView(R.id.checkbox)
+    @BindView(R2.id.checkbox)
     CheckBox checkBox;
 
-    @BindView(R.id.singleReceiptImageView)
+    @BindView(R2.id.singleReceiptImageView)
     @Nullable
     ImageView singleReceiptImageView;
 
-    @BindView(R.id.groupReceiptFrameLayout)
+    @BindView(R2.id.groupReceiptFrameLayout)
     @Nullable
     FrameLayout groupReceiptFrameLayout;
 
-    @BindView(R.id.deliveryProgressBar)
+    @BindView(R2.id.deliveryProgressBar)
     @Nullable
     ProgressBar deliveryProgressBar;
-    @BindView(R.id.readProgressBar)
+    @BindView(R2.id.readProgressBar)
     @Nullable
     ProgressBar readProgressBar;
 
@@ -142,7 +143,7 @@ public abstract class NormalMessageContentViewHolder extends MessageContentViewH
     }
 
     @Optional
-    @OnClick(R.id.errorLinearLayout)
+    @OnClick(R2.id.errorLinearLayout)
     public void onRetryClick(View itemView) {
         new MaterialDialog.Builder(fragment.getContext())
             .content("重新发送?")
@@ -154,7 +155,7 @@ public abstract class NormalMessageContentViewHolder extends MessageContentViewH
     }
 
     @Optional
-    @OnClick(R.id.groupReceiptFrameLayout)
+    @OnClick(R2.id.groupReceiptFrameLayout)
     public void OnGroupMessageReceiptClick(View itemView) {
         ((ConversationMessageAdapter) adapter).onGroupMessageReceiptClick(message.message);
     }

@@ -9,9 +9,10 @@ import cn.wildfire.chat.kit.contact.model.UIUserInfo;
 import cn.wildfire.chat.kit.contact.pick.CheckableUserListAdapter;
 import cn.wildfire.chat.kit.contact.viewholder.UserViewHolder;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class CheckableUserViewHolder extends UserViewHolder {
-    @BindView(R.id.checkbox)
+    @BindView(R2.id.checkbox)
     CheckBox checkBox;
 
     public CheckableUserViewHolder(Fragment fragment, CheckableUserListAdapter adapter, View itemView) {

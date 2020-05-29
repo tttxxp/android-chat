@@ -17,15 +17,16 @@ import cn.wildfire.chat.kit.conversation.ConversationFragment;
 import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.StickerMessageContent;
 
 @MessageContentType(StickerMessageContent.class)
-@SendLayoutRes(resId = R.layout.conversation_item_sticker_send)
-@ReceiveLayoutRes(resId = R.layout.conversation_item_sticker_receive)
+@SendLayoutRes(resId = R2.layout.conversation_item_sticker_send)
+@ReceiveLayoutRes(resId = R2.layout.conversation_item_sticker_receive)
 @EnableContextMenu
 public class StickerMessageContentViewHolder extends NormalMessageContentViewHolder {
     private String path;
-    @BindView(R.id.stickerImageView)
+    @BindView(R2.id.stickerImageView)
     ImageView imageView;
 
     public StickerMessageContentViewHolder(ConversationFragment fragment, RecyclerView.Adapter adapter, View itemView) {

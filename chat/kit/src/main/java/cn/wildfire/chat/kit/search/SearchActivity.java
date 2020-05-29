@@ -11,6 +11,7 @@ import butterknife.OnClick;
 import cn.wildfire.chat.kit.WfcBaseNoToolbarActivity;
 import cn.wildfire.chat.kit.widget.SearchView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.remote.ChatManager;
 
 /**
@@ -20,10 +21,10 @@ public abstract class SearchActivity extends WfcBaseNoToolbarActivity {
     private SearchFragment searchFragment;
     private List<SearchableModule> modules = new ArrayList<>();
 
-    @BindView(R.id.search_view)
+    @BindView(R2.id.search_view)
     SearchView searchView;
 
-    @OnClick(R.id.cancel)
+    @OnClick(R2.id.cancel)
     public void onCancelClick() {
         finish();
     }

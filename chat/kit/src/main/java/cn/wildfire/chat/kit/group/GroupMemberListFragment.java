@@ -15,6 +15,7 @@ import cn.wildfire.chat.kit.user.UserInfoActivity;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfire.chat.kit.widget.ProgressFragment;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.GroupInfo;
 import cn.wildfirechat.model.GroupMember;
 import cn.wildfirechat.model.UserInfo;
@@ -24,7 +25,7 @@ public class GroupMemberListFragment extends ProgressFragment implements GroupMe
     private GroupInfo groupInfo;
     private GroupMemberListAdapter groupMemberListAdapter;
 
-    @BindView(R.id.memberRecyclerView)
+    @BindView(R2.id.memberRecyclerView)
     RecyclerView memberRecyclerView;
 
     public static GroupMemberListFragment newInstance(GroupInfo groupInfo) {

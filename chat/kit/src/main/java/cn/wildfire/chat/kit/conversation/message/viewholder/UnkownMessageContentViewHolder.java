@@ -13,14 +13,15 @@ import cn.wildfire.chat.kit.annotation.SendLayoutRes;
 import cn.wildfire.chat.kit.conversation.ConversationFragment;
 import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.UnknownMessageContent;
 
 @MessageContentType(UnknownMessageContent.class)
-@SendLayoutRes(resId = R.layout.conversation_item_unknown_send)
-@ReceiveLayoutRes(resId = R.layout.conversation_item_unknown_receive)
+@SendLayoutRes(resId = R2.layout.conversation_item_unknown_send)
+@ReceiveLayoutRes(resId = R2.layout.conversation_item_unknown_receive)
 @EnableContextMenu
 public class UnkownMessageContentViewHolder extends NormalMessageContentViewHolder {
-    @BindView(R.id.contentTextView)
+    @BindView(R2.id.contentTextView)
     TextView contentTextView;
 
     public UnkownMessageContentViewHolder(ConversationFragment fragment, RecyclerView.Adapter adapter, View itemView) {

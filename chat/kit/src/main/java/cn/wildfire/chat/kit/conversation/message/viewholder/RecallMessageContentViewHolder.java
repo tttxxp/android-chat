@@ -13,16 +13,17 @@ import cn.wildfire.chat.kit.annotation.MessageContentType;
 import cn.wildfire.chat.kit.conversation.ConversationFragment;
 import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.notification.NotificationMessageContent;
 import cn.wildfirechat.message.notification.RecallMessageContent;
 
 @MessageContentType(RecallMessageContent.class)
-@LayoutRes(resId = R.layout.conversation_item_recall_notification)
+@LayoutRes(resId = R2.layout.conversation_item_recall_notification)
 @EnableContextMenu
 public class RecallMessageContentViewHolder extends NotificationMessageContentViewHolder {
-    @BindView(R.id.notificationTextView)
+    @BindView(R2.id.notificationTextView)
     TextView notificationTextView;
-    @BindView(R.id.reeditTextView)
+    @BindView(R2.id.reeditTextView)
     TextView reeditTextView;
 
     private RecallMessageContent content;
@@ -42,7 +43,7 @@ public class RecallMessageContentViewHolder extends NotificationMessageContentVi
         }
     }
 
-    @OnClick(R.id.reeditTextView)
+    @OnClick(R2.id.reeditTextView)
     public void onClick(View view) {
         fragment.setInputText(content.getOriginalSearchableContent());
     }

@@ -28,6 +28,7 @@ import cn.wildfire.chat.app.third.location.ui.base.BaseActivity;
 import cn.wildfire.chat.app.third.location.ui.presenter.MyLocationAtPresenter;
 import cn.wildfire.chat.app.third.location.ui.view.IMyLocationAtView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 /**
  * @创建者 CSDN_LQR
@@ -39,13 +40,13 @@ public class ShowLocationActivity extends BaseActivity<IMyLocationAtView, MyLoca
     private double mLat;
     private double mLong;
 
-    @BindView(R.id.confirmButton)
+    @BindView(R2.id.confirmButton)
     Button mBtnToolbarSend;
-    @BindView(R.id.rlMap)
+    @BindView(R2.id.rlMap)
     RelativeLayout mRlMap;
-    @BindView(R.id.map)
+    @BindView(R2.id.map)
     MapView mMap;
-    @BindView(R.id.ibShowLocation)
+    @BindView(R2.id.ibShowLocation)
     ImageButton mIbShowLocation;
     private Marker myLocation;
     private Circle accuracy;

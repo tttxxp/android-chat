@@ -18,6 +18,7 @@ import butterknife.OnTextChanged;
 import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfire.chat.kit.common.OperateResult;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.ModifyMyInfoEntry;
 import cn.wildfirechat.model.UserInfo;
 
@@ -26,7 +27,7 @@ import static cn.wildfirechat.model.ModifyMyInfoType.Modify_DisplayName;
 public class ChangeMyNameActivity extends WfcBaseActivity {
 
     private MenuItem confirmMenuItem;
-    @BindView(R.id.nameEditText)
+    @BindView(R2.id.nameEditText)
     EditText nameEditText;
 
     private UserViewModel userViewModel;
@@ -76,7 +77,7 @@ public class ChangeMyNameActivity extends WfcBaseActivity {
         nameEditText.setSelection(nameEditText.getText().toString().trim().length());
     }
 
-    @OnTextChanged(value = R.id.nameEditText, callback = OnTextChanged.Callback.TEXT_CHANGED)
+    @OnTextChanged(value = R2.id.nameEditText, callback = OnTextChanged.Callback.TEXT_CHANGED)
     void inputNewName(CharSequence s, int start, int before, int count) {
         if (confirmMenuItem != null) {
             if (nameEditText.getText().toString().trim().length() > 0) {

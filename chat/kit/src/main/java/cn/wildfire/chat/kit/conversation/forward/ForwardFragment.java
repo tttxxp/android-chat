@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 import cn.wildfire.chat.kit.conversationlist.ConversationListViewModel;
 import cn.wildfire.chat.kit.conversationlist.ConversationListViewModelFactory;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.Conversation;
 import cn.wildfirechat.model.ConversationInfo;
 import cn.wildfirechat.model.GroupInfo;
@@ -29,7 +30,7 @@ import cn.wildfirechat.model.UserInfo;
 
 public class ForwardFragment extends Fragment implements ForwardAdapter.OnConversationItemClickListener, ForwardAdapter.OnNewConversationItemClickListener {
     private static final int REQUEST_CODE_PICK_CONVERSATION_TARGET = 100;
-    @BindView(R.id.recyclerView)
+    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
     @Nullable

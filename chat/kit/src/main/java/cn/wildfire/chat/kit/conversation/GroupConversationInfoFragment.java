@@ -53,6 +53,7 @@ import cn.wildfire.chat.kit.user.UserInfoActivity;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfire.chat.kit.widget.OptionItemView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.Conversation;
 import cn.wildfirechat.model.ConversationInfo;
 import cn.wildfirechat.model.GroupInfo;
@@ -63,51 +64,51 @@ import cn.wildfirechat.remote.UserSettingScope;
 
 public class GroupConversationInfoFragment extends Fragment implements ConversationMemberAdapter.OnMemberClickListener, CompoundButton.OnCheckedChangeListener {
 
-    @BindView(R.id.progressBar)
+    @BindView(R2.id.progressBar)
     ProgressBar progressBar;
 
-    @BindView(R.id.contentNestedScrollView)
+    @BindView(R2.id.contentNestedScrollView)
     NestedScrollView contentNestedScrollView;
 
     // group
-    @BindView(R.id.groupLinearLayout_0)
+    @BindView(R2.id.groupLinearLayout_0)
     LinearLayout groupLinearLayout_0;
-    @BindView(R.id.groupNameOptionItemView)
+    @BindView(R2.id.groupNameOptionItemView)
     OptionItemView groupNameOptionItemView;
-    @BindView(R.id.groupQRCodeOptionItemView)
+    @BindView(R2.id.groupQRCodeOptionItemView)
     OptionItemView groupQRCodeOptionItemView;
-    @BindView(R.id.groupNoticeLinearLayout)
+    @BindView(R2.id.groupNoticeLinearLayout)
     LinearLayout noticeLinearLayout;
-    @BindView(R.id.groupNoticeTextView)
+    @BindView(R2.id.groupNoticeTextView)
     TextView noticeTextView;
-    @BindView(R.id.groupManageOptionItemView)
+    @BindView(R2.id.groupManageOptionItemView)
     OptionItemView groupManageOptionItemView;
-    @BindView(R.id.groupManageDividerLine)
+    @BindView(R2.id.groupManageDividerLine)
     View groupManageDividerLine;
-    @BindView(R.id.showAllMemberButton)
+    @BindView(R2.id.showAllMemberButton)
     Button showAllGroupMemberButton;
 
-    @BindView(R.id.groupLinearLayout_1)
+    @BindView(R2.id.groupLinearLayout_1)
     LinearLayout groupLinearLayout_1;
-    @BindView(R.id.myGroupNickNameOptionItemView)
+    @BindView(R2.id.myGroupNickNameOptionItemView)
     OptionItemView myGroupNickNameOptionItemView;
-    @BindView(R.id.showGroupMemberAliasSwitchButton)
+    @BindView(R2.id.showGroupMemberAliasSwitchButton)
     SwitchButton showGroupMemberNickNameSwitchButton;
 
-    @BindView(R.id.quitButton)
+    @BindView(R2.id.quitButton)
     TextView quitGroupButton;
 
-    @BindView(R.id.markGroupLinearLayout)
+    @BindView(R2.id.markGroupLinearLayout)
     LinearLayout markGroupLinearLayout;
-    @BindView(R.id.markGroupSwitchButton)
+    @BindView(R2.id.markGroupSwitchButton)
     SwitchButton markGroupSwitchButton;
 
     // common
-    @BindView(R.id.memberRecyclerView)
+    @BindView(R2.id.memberRecyclerView)
     RecyclerView memberReclerView;
-    @BindView(R.id.stickTopSwitchButton)
+    @BindView(R2.id.stickTopSwitchButton)
     SwitchButton stickTopSwitchButton;
-    @BindView(R.id.silentSwitchButton)
+    @BindView(R2.id.silentSwitchButton)
     SwitchButton silentSwitchButton;
 
     private ConversationInfo conversationInfo;
@@ -320,7 +321,7 @@ public class GroupConversationInfoFragment extends Fragment implements Conversat
 
     }
 
-    @OnClick(R.id.groupNameOptionItemView)
+    @OnClick(R2.id.groupNameOptionItemView)
     void updateGroupName() {
         if (groupInfo.type != GroupInfo.GroupType.Restricted
                 || (groupMember.type == GroupMember.GroupMemberType.Manager || groupMember.type == GroupMember.GroupMemberType.Owner)) {
@@ -330,7 +331,7 @@ public class GroupConversationInfoFragment extends Fragment implements Conversat
         }
     }
 
-    @OnClick(R.id.groupNoticeLinearLayout)
+    @OnClick(R2.id.groupNoticeLinearLayout)
     void updateGroupNotice() {
         if (groupInfo.type != GroupInfo.GroupType.Restricted
                 || (groupMember.type == GroupMember.GroupMemberType.Manager || groupMember.type == GroupMember.GroupMemberType.Owner)) {
@@ -340,21 +341,21 @@ public class GroupConversationInfoFragment extends Fragment implements Conversat
         }
     }
 
-    @OnClick(R.id.groupManageOptionItemView)
+    @OnClick(R2.id.groupManageOptionItemView)
     void manageGroup() {
         Intent intent = new Intent(getActivity(), GroupManageActivity.class);
         intent.putExtra("groupInfo", groupInfo);
         startActivity(intent);
     }
 
-    @OnClick(R.id.showAllMemberButton)
+    @OnClick(R2.id.showAllMemberButton)
     void showAllGroupMember() {
         Intent intent = new Intent(getActivity(), GroupMemberListActivity.class);
         intent.putExtra("groupInfo", groupInfo);
         startActivity(intent);
     }
 
-    @OnClick(R.id.myGroupNickNameOptionItemView)
+    @OnClick(R2.id.myGroupNickNameOptionItemView)
     void updateMyGroupAlias() {
         MaterialDialog dialog = new MaterialDialog.Builder(getActivity())
                 .input("请输入你的群昵称", groupMember.alias, false, (dialog1, input) -> {
@@ -376,7 +377,7 @@ public class GroupConversationInfoFragment extends Fragment implements Conversat
         dialog.show();
     }
 
-    @OnClick(R.id.quitButton)
+    @OnClick(R2.id.quitButton)
     void quitGroup() {
         if (groupInfo != null && userViewModel.getUserId().equals(groupInfo.owner)) {
             groupViewModel.dismissGroup(conversationInfo.conversation.target, Collections.singletonList(0), null).observe(this, aBoolean -> {
@@ -399,19 +400,19 @@ public class GroupConversationInfoFragment extends Fragment implements Conversat
         }
     }
 
-    @OnClick(R.id.clearMessagesOptionItemView)
+    @OnClick(R2.id.clearMessagesOptionItemView)
     void clearMessage() {
         conversationViewModel.clearConversationMessage(conversationInfo.conversation);
     }
 
-    @OnClick(R.id.groupQRCodeOptionItemView)
+    @OnClick(R2.id.groupQRCodeOptionItemView)
     void showGroupQRCode() {
         String qrCodeValue = WfcScheme.QR_CODE_PREFIX_GROUP + groupInfo.target;
         Intent intent = QRCodeActivity.buildQRCodeIntent(getActivity(), "群二维码", groupInfo.portrait, qrCodeValue);
         startActivity(intent);
     }
 
-    @OnClick(R.id.searchMessageOptionItemView)
+    @OnClick(R2.id.searchMessageOptionItemView)
     void searchGroupMessage() {
         Intent intent = new Intent(getActivity(), SearchMessageActivity.class);
         intent.putExtra("conversation", conversationInfo.conversation);
@@ -462,18 +463,13 @@ public class GroupConversationInfoFragment extends Fragment implements Conversat
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (buttonView.getId()) {
-            case R.id.markGroupSwitchButton:
-                markGroup(isChecked);
-                break;
-            case R.id.stickTopSwitchButton:
-                stickTop(isChecked);
-                break;
-            case R.id.silentSwitchButton:
-                silent(isChecked);
-                break;
-            default:
-                break;
+        int id = buttonView.getId();
+        if (id == R.id.markGroupSwitchButton) {
+            markGroup(isChecked);
+        } else if (id == R.id.stickTopSwitchButton) {
+            stickTop(isChecked);
+        } else if (id == R.id.silentSwitchButton) {
+            silent(isChecked);
         }
 
     }

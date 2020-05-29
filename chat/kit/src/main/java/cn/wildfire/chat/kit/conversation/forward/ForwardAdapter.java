@@ -42,18 +42,14 @@ public class ForwardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
         RecyclerView.ViewHolder holder;
-        switch (viewType) {
-            case R.layout.forward_item_create_conversation:
-                holder = new CreateConversationViewHolder(view);
-                processOnClick(holder);
-                break;
-            case R.layout.forward_item_category:
-                holder = new CategoryViewHolder(view);
-                break;
-            default:
-                holder = new ConversationViewHolder(fragment, view);
-                processOnClick(holder);
-                break;
+        if (viewType == R.layout.forward_item_create_conversation) {
+            holder = new CreateConversationViewHolder(view);
+            processOnClick(holder);
+        } else if (viewType == R.layout.forward_item_category) {
+            holder = new CategoryViewHolder(view);
+        } else {
+            holder = new ConversationViewHolder(fragment, view);
+            processOnClick(holder);
         }
         return holder;
     }

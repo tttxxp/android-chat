@@ -18,15 +18,16 @@ import cn.wildfire.chat.kit.contact.UserListAdapter;
 import cn.wildfire.chat.kit.contact.model.UIUserInfo;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {
     protected Fragment fragment;
     protected UserListAdapter adapter;
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.categoryTextView)
+    @BindView(R2.id.categoryTextView)
     protected TextView categoryTextView;
 
     protected UIUserInfo userInfo;

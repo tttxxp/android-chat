@@ -9,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class CategoryViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.categoryTextView)
+    @BindView(R2.id.categoryTextView)
     TextView categoryTextView;
 
     public CategoryViewHolder(View itemView) {

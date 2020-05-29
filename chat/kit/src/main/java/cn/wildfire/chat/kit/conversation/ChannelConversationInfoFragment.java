@@ -29,6 +29,7 @@ import cn.wildfire.chat.kit.conversationlist.ConversationListViewModelFactory;
 import cn.wildfire.chat.kit.qrcode.QRCodeActivity;
 import cn.wildfire.chat.kit.widget.OptionItemView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.ChannelInfo;
 import cn.wildfirechat.model.Conversation;
 import cn.wildfirechat.model.ConversationInfo;
@@ -36,16 +37,16 @@ import cn.wildfirechat.model.ConversationInfo;
 public class ChannelConversationInfoFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
 
     // common
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.stickTopSwitchButton)
+    @BindView(R2.id.stickTopSwitchButton)
     SwitchButton stickTopSwitchButton;
-    @BindView(R.id.silentSwitchButton)
+    @BindView(R2.id.silentSwitchButton)
     SwitchButton silentSwitchButton;
 
-    @BindView(R.id.channelNameOptionItemView)
+    @BindView(R2.id.channelNameOptionItemView)
     OptionItemView channelNameOptionItemView;
-    @BindView(R.id.channelDescOptionItemView)
+    @BindView(R2.id.channelDescOptionItemView)
     OptionItemView channelDescOptionItemView;
 
     private ConversationInfo conversationInfo;
@@ -111,12 +112,12 @@ public class ChannelConversationInfoFragment extends Fragment implements Compoun
         Glide.with(this).load(channelInfo.portrait).into(portraitImageView);
     }
 
-    @OnClick(R.id.clearMessagesOptionItemView)
+    @OnClick(R2.id.clearMessagesOptionItemView)
     void clearMessage() {
         conversationViewModel.clearConversationMessage(conversationInfo.conversation);
     }
 
-    @OnClick(R.id.channelQRCodeOptionItemView)
+    @OnClick(R2.id.channelQRCodeOptionItemView)
     void showChannelQRCode() {
         String qrCodeValue = WfcScheme.QR_CODE_PREFIX_CHANNEL + channelInfo.channelId;
         Intent intent = QRCodeActivity.buildQRCodeIntent(getActivity(), "频道二维码", channelInfo.portrait, qrCodeValue);
@@ -145,15 +146,11 @@ public class ChannelConversationInfoFragment extends Fragment implements Compoun
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (buttonView.getId()) {
-            case R.id.stickTopSwitchButton:
-                stickTop(isChecked);
-                break;
-            case R.id.silentSwitchButton:
-                silent(isChecked);
-                break;
-            default:
-                break;
+        int id = buttonView.getId();
+        if (id == R.id.stickTopSwitchButton) {
+            stickTop(isChecked);
+        } else if (id == R.id.silentSwitchButton) {
+            silent(isChecked);
         }
 
     }

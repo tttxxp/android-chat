@@ -59,6 +59,7 @@ import cn.wildfire.chat.kit.widget.InputAwareLayout;
 import cn.wildfire.chat.kit.widget.KeyboardAwareLinearLayout;
 import cn.wildfirechat.avenginekit.AVEngineKit;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.Message;
 import cn.wildfirechat.message.MessageContent;
 import cn.wildfirechat.message.TypingMessageContent;
@@ -93,17 +94,17 @@ public class ConversationFragment extends Fragment implements
     private static final int MESSAGE_LOAD_COUNT_PER_TIME = 20;
     private static final int MESSAGE_LOAD_AROUND = 10;
 
-    @BindView(R.id.rootLinearLayout)
+    @BindView(R2.id.rootLinearLayout)
     InputAwareLayout rootLinearLayout;
-    @BindView(R.id.swipeRefreshLayout)
+    @BindView(R2.id.swipeRefreshLayout)
     SwipeRefreshLayout swipeRefreshLayout;
-    @BindView(R.id.msgRecyclerView)
+    @BindView(R2.id.msgRecyclerView)
     RecyclerView recyclerView;
 
-    @BindView(R.id.inputPanelFrameLayout)
+    @BindView(R2.id.inputPanelFrameLayout)
     ConversationInputPanel inputPanel;
 
-    @BindView(R.id.multiMessageActionContainerLinearLayout)
+    @BindView(R2.id.multiMessageActionContainerLinearLayout)
     LinearLayout multiMessageActionContainerLinearLayout;
 
     private ConversationMessageAdapter adapter;
@@ -564,7 +565,7 @@ public class ConversationFragment extends Fragment implements
         }
     }
 
-    @OnTouch({R.id.contentLayout, R.id.msgRecyclerView})
+    @OnTouch({R2.id.contentLayout, R2.id.msgRecyclerView})
     boolean onTouch(View view, MotionEvent event) {
 //        if (event.getAction() == MotionEvent.ACTION_DOWN && inputPanel.extension.canHideOnScroll()) {
 //            inputPanel.collapse();

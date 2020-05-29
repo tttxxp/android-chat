@@ -14,6 +14,7 @@ import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.third.utils.TimeUtils;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.Message;
 import cn.wildfirechat.message.notification.NotificationMessageContent;
 import cn.wildfirechat.model.Conversation;
@@ -21,13 +22,13 @@ import cn.wildfirechat.model.UserInfo;
 import cn.wildfirechat.remote.ChatManager;
 
 public class MessageViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     protected ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     protected TextView nameTextView;
-    @BindView(R.id.contentTextView)
+    @BindView(R2.id.contentTextView)
     protected TextView contentTextView;
-    @BindView(R.id.timeTextView)
+    @BindView(R2.id.timeTextView)
     protected TextView timeTextView;
 
     private Fragment fragment;

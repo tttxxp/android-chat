@@ -19,6 +19,7 @@ import butterknife.OnClick;
 import cn.wildfire.chat.kit.contact.ContactViewModel;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.FriendRequest;
 import cn.wildfirechat.model.UserInfo;
 
@@ -29,15 +30,15 @@ public class FriendRequestViewHolder extends RecyclerView.ViewHolder {
     private UserViewModel userViewModel;
     private ContactViewModel contactViewModel;
 
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.introTextView)
+    @BindView(R2.id.introTextView)
     TextView introTextView;
-    @BindView(R.id.acceptButton)
+    @BindView(R2.id.acceptButton)
     Button acceptButton;
-    @BindView(R.id.acceptStatusTextView)
+    @BindView(R2.id.acceptStatusTextView)
     TextView acceptStatusTextView;
 
     public FriendRequestViewHolder(FriendRequestListFragment fragment, FriendRequestListAdapter adapter, View itemView) {
@@ -49,7 +50,7 @@ public class FriendRequestViewHolder extends RecyclerView.ViewHolder {
         contactViewModel = ViewModelProviders.of(fragment).get(ContactViewModel.class);
     }
 
-    @OnClick(R.id.acceptButton)
+    @OnClick(R2.id.acceptButton)
     void accept() {
         contactViewModel.acceptFriendRequest(friendRequest.target).observe(fragment, aBoolean -> {
             if (aBoolean) {

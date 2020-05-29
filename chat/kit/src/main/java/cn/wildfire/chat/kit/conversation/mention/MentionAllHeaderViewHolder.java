@@ -8,8 +8,9 @@ import cn.wildfire.chat.kit.contact.UserListAdapter;
 import cn.wildfire.chat.kit.contact.model.HeaderValue;
 import cn.wildfire.chat.kit.contact.viewholder.header.HeaderViewHolder;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
-@LayoutRes(resId = R.layout.conversation_header_mention_all)
+@LayoutRes(resId = R2.layout.conversation_header_mention_all)
 public class MentionAllHeaderViewHolder extends HeaderViewHolder<HeaderValue> {
     public MentionAllHeaderViewHolder(Fragment fragment, UserListAdapter adapter, View itemView) {
         super(fragment, adapter, itemView);

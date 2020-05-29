@@ -19,12 +19,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfire.chat.kit.group.GroupViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.GroupInfo;
 
 public class GroupMuteFragment extends Fragment {
     private GroupInfo groupInfo;
 
-    @BindView(R.id.muteSwitchButton)
+    @BindView(R2.id.muteSwitchButton)
     SwitchButton switchButton;
 
     public static GroupMuteFragment newInstance(GroupInfo groupInfo) {

@@ -21,12 +21,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfire.chat.kit.conversation.ConversationActivity;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.ChannelInfo;
 import cn.wildfirechat.model.Conversation;
 
 
 public class ChannelListFragment extends Fragment implements ChannelListAdapter.OnChannelClickListener {
-    @BindView(R.id.recyclerView)
+    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
     private ChannelViewModel channelViewModel;
     private ChannelListAdapter channelListAdapter;

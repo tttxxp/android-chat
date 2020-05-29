@@ -25,6 +25,7 @@ import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.widget.LinkClickListener;
 import cn.wildfire.chat.kit.widget.LinkTextViewMovementMethod;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.PTextMessageContent;
 import cn.wildfirechat.message.TextMessageContent;
 
@@ -34,11 +35,11 @@ import cn.wildfirechat.message.TextMessageContent;
         PTextMessageContent.class
 
 })
-@SendLayoutRes(resId = R.layout.conversation_item_text_send)
-@ReceiveLayoutRes(resId = R.layout.conversation_item_text_receive)
+@SendLayoutRes(resId = R2.layout.conversation_item_text_send)
+@ReceiveLayoutRes(resId = R2.layout.conversation_item_text_receive)
 @EnableContextMenu
 public class TextMessageContentViewHolder extends NormalMessageContentViewHolder {
-    @BindView(R.id.contentTextView)
+    @BindView(R2.id.contentTextView)
     TextView contentTextView;
 
     public TextMessageContentViewHolder(ConversationFragment fragment, RecyclerView.Adapter adapter, View itemView) {
@@ -57,7 +58,7 @@ public class TextMessageContentViewHolder extends NormalMessageContentViewHolder
         }));
     }
 
-    @OnClick(R.id.contentTextView)
+    @OnClick(R2.id.contentTextView)
     public void onClickTest(View view) {
         Toast.makeText(fragment.getContext(), "onTextMessage click: " + ((TextMessageContent) message.message.content).getContent(), Toast.LENGTH_SHORT).show();
     }

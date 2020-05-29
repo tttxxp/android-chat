@@ -26,18 +26,19 @@ import butterknife.OnClick;
 import cn.wildfire.chat.kit.common.OperateResult;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.ChannelInfo;
 
 public class ChannelInfoActivity extends AppCompatActivity {
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.channelNameTextView)
+    @BindView(R2.id.channelNameTextView)
     TextView channelTextView;
-    @BindView(R.id.channelDescTextView)
+    @BindView(R2.id.channelDescTextView)
     TextView channelDescTextView;
-    @BindView(R.id.followChannelButton)
+    @BindView(R2.id.followChannelButton)
     Button followChannelButton;
-    @BindView(R.id.toolbar)
+    @BindView(R2.id.toolbar)
     Toolbar toolbar;
 
     private boolean isFollowed = false;
@@ -99,7 +100,7 @@ public class ChannelInfoActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.followChannelButton)
+    @OnClick(R2.id.followChannelButton)
     void followChannelButtonClick() {
         MaterialDialog dialog = new MaterialDialog.Builder(this)
                 .content(isFollowed ? "正在取消收听" : "正在收听")

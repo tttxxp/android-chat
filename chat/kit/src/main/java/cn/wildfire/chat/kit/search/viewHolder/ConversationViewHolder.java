@@ -15,17 +15,18 @@ import butterknife.ButterKnife;
 import cn.wildfire.chat.kit.group.GroupViewModel;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.Conversation;
 import cn.wildfirechat.model.ConversationSearchResult;
 import cn.wildfirechat.model.GroupInfo;
 import cn.wildfirechat.model.UserInfo;
 
 public class ConversationViewHolder extends ResultItemViewHolder<ConversationSearchResult> {
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.descTextView)
+    @BindView(R2.id.descTextView)
     TextView descTextView;
 
     private UserViewModel userViewModel;

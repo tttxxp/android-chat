@@ -41,29 +41,30 @@ import cn.wildfire.chat.kit.third.utils.ImageUtils;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfire.chat.kit.widget.OptionItemView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.Conversation;
 import cn.wildfirechat.model.UserInfo;
 
 public class UserInfoFragment extends Fragment {
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.accountTextView)
+    @BindView(R2.id.accountTextView)
     TextView accountTextView;
-    @BindView(R.id.chatButton)
+    @BindView(R2.id.chatButton)
     View chatButton;
-    @BindView(R.id.voipChatButton)
+    @BindView(R2.id.voipChatButton)
     View voipChatButton;
-    @BindView(R.id.inviteButton)
+    @BindView(R2.id.inviteButton)
     Button inviteButton;
-    @BindView(R.id.aliasOptionItemView)
+    @BindView(R2.id.aliasOptionItemView)
     OptionItemView aliasOptionItemView;
 
-    @BindView(R.id.qrCodeOptionItemView)
+    @BindView(R2.id.qrCodeOptionItemView)
     OptionItemView qrCodeOptionItemView;
 
-    @BindView(R.id.momentButton)
+    @BindView(R2.id.momentButton)
     View momentButton;
 
     private UserInfo userInfo;
@@ -149,7 +150,7 @@ public class UserInfoFragment extends Fragment {
         accountTextView.setText("野火ID:" + userInfo.name);
     }
 
-    @OnClick(R.id.chatButton)
+    @OnClick(R2.id.chatButton)
     void chat() {
         Intent intent = new Intent(getActivity(), ConversationActivity.class);
         Conversation conversation = new Conversation(Conversation.ConversationType.Single, userInfo.uid, 0);
@@ -158,19 +159,19 @@ public class UserInfoFragment extends Fragment {
         getActivity().finish();
     }
 
-    @OnClick(R.id.momentButton)
+    @OnClick(R2.id.momentButton)
     void moment() {
         Intent intent = new Intent(WfcIntent.ACTION_MOMENT);
         intent.putExtra("userInfo", userInfo);
         startActivity(intent);
     }
 
-    @OnClick(R.id.voipChatButton)
+    @OnClick(R2.id.voipChatButton)
     void voipChat() {
         WfcUIKit.singleCall(getActivity(), userInfo.uid, false);
     }
 
-    @OnClick(R.id.aliasOptionItemView)
+    @OnClick(R2.id.aliasOptionItemView)
     void alias() {
         String selfUid = userViewModel.getUserId();
         if (selfUid.equals(userInfo.uid)) {
@@ -185,7 +186,7 @@ public class UserInfoFragment extends Fragment {
 
     private static final int REQUEST_CODE_PICK_IMAGE = 100;
 
-    @OnClick(R.id.portraitImageView)
+    @OnClick(R2.id.portraitImageView)
     void portrait() {
         if (userInfo.uid.equals(userViewModel.getUserId())) {
             updatePortrait();
@@ -216,7 +217,7 @@ public class UserInfoFragment extends Fragment {
         }
     }
 
-    @OnClick(R.id.inviteButton)
+    @OnClick(R2.id.inviteButton)
     void invite() {
         Intent intent = new Intent(getActivity(), InviteFriendActivity.class);
         intent.putExtra("userInfo", userInfo);
@@ -224,7 +225,7 @@ public class UserInfoFragment extends Fragment {
         getActivity().finish();
     }
 
-    @OnClick(R.id.qrCodeOptionItemView)
+    @OnClick(R2.id.qrCodeOptionItemView)
     void showMyQRCode() {
         UserInfo userInfo = userViewModel.getUserInfo(userViewModel.getUserId(), false);
         String qrCodeValue = WfcScheme.QR_CODE_PREFIX_USER + userInfo.uid;

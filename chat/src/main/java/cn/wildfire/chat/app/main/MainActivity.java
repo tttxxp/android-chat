@@ -58,6 +58,7 @@ import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfire.chat.kit.viewmodel.MessageViewModel;
 import cn.wildfire.chat.kit.widget.ViewPagerFixed;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.client.ConnectionStatus;
 import cn.wildfirechat.message.Message;
 import cn.wildfirechat.message.core.MessageContentType;
@@ -71,13 +72,13 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
 
     private List<Fragment> mFragmentList = new ArrayList<>(4);
 
-    @BindView(R.id.bottomNavigationView)
+    @BindView(R2.id.bottomNavigationView)
     BottomNavigationView bottomNavigationView;
-    @BindView(R.id.contentViewPager)
+    @BindView(R2.id.contentViewPager)
     ViewPagerFixed contentViewPager;
-    @BindView(R.id.startingTextView)
+    @BindView(R2.id.startingTextView)
     TextView startingTextView;
-    @BindView(R.id.contentLinearLayout)
+    @BindView(R2.id.contentLinearLayout)
     LinearLayout contentLinearLayout;
 
     private QBadgeView unreadMessageUnreadBadgeView;
@@ -268,37 +269,31 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
         contentViewPager.setOnPageChangeListener(this);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.conversation_list:
-                    contentViewPager.setCurrentItem(0);
-                    setTitle("野火");
-                    if (!isDarkTheme()) {
-                        setTitleBackgroundResource(R.color.gray5, false);
-                    }
-                    break;
-                case R.id.contact:
-                    contentViewPager.setCurrentItem(1);
-                    setTitle("通讯录");
-                    if (!isDarkTheme()) {
-                        setTitleBackgroundResource(R.color.gray5, false);
-                    }
-                    break;
-                case R.id.discovery:
-                    contentViewPager.setCurrentItem(2);
-                    setTitle("发现");
-                    if (!isDarkTheme()) {
-                        setTitleBackgroundResource(R.color.gray5, false);
-                    }
-                    break;
-                case R.id.me:
-                    contentViewPager.setCurrentItem(3);
-                    setTitle("我的");
-                    if (!isDarkTheme()) {
-                        setTitleBackgroundResource(R.color.white, false);
-                    }
-                    break;
-                default:
-                    break;
+            int itemId = item.getItemId();
+            if (itemId == R.id.conversation_list) {
+                contentViewPager.setCurrentItem(0);
+                setTitle("野火");
+                if (!isDarkTheme()) {
+                    setTitleBackgroundResource(R.color.gray5, false);
+                }
+            } else if (itemId == R.id.contact) {
+                contentViewPager.setCurrentItem(1);
+                setTitle("通讯录");
+                if (!isDarkTheme()) {
+                    setTitleBackgroundResource(R.color.gray5, false);
+                }
+            } else if (itemId == R.id.discovery) {
+                contentViewPager.setCurrentItem(2);
+                setTitle("发现");
+                if (!isDarkTheme()) {
+                    setTitleBackgroundResource(R.color.gray5, false);
+                }
+            } else if (itemId == R.id.me) {
+                contentViewPager.setCurrentItem(3);
+                setTitle("我的");
+                if (!isDarkTheme()) {
+                    setTitleBackgroundResource(R.color.white, false);
+                }
             }
             return true;
         });
@@ -306,27 +301,22 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.search:
-                showSearchPortal();
-                break;
-            case R.id.chat:
-                createConversation();
-                break;
-            case R.id.add_contact:
-                searchUser();
-                break;
-            case R.id.scan_qrcode:
-                String[] permissions = new String[]{Manifest.permission.CAMERA};
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (!checkPermission(permissions)) {
-                        requestPermissions(permissions, 100);
-                        return true;
-                    }
+        int itemId = item.getItemId();
+        if (itemId == R.id.search) {
+            showSearchPortal();
+        } else if (itemId == R.id.chat) {
+            createConversation();
+        } else if (itemId == R.id.add_contact) {
+            searchUser();
+        } else if (itemId == R.id.scan_qrcode) {
+            String[] permissions = new String[]{Manifest.permission.CAMERA};
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (!checkPermission(permissions)) {
+                    requestPermissions(permissions, 100);
+                    return true;
                 }
-                startActivityForResult(new Intent(this, ScanQRCodeActivity.class), REQUEST_CODE_SCAN_QR_CODE);
-            default:
-                break;
+            }
+            startActivityForResult(new Intent(this, ScanQRCodeActivity.class), REQUEST_CODE_SCAN_QR_CODE);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -20,17 +20,18 @@ import cn.wildfire.chat.app.main.MainActivity;
 import cn.wildfire.chat.kit.ChatManagerHolder;
 import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 /**
  * use {@link SMSLoginActivity} instead
  */
 @Deprecated
 public class LoginActivity extends WfcBaseActivity {
-    @BindView(R.id.loginButton)
+    @BindView(R2.id.loginButton)
     Button loginButton;
-    @BindView(R.id.accountEditText)
+    @BindView(R2.id.accountEditText)
     EditText accountEditText;
-    @BindView(R.id.passwordEditText)
+    @BindView(R2.id.passwordEditText)
     EditText passwordEditText;
 
     @Override
@@ -43,7 +44,7 @@ public class LoginActivity extends WfcBaseActivity {
         return false;
     }
 
-    @OnTextChanged(value = R.id.accountEditText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
+    @OnTextChanged(value = R2.id.accountEditText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void inputAccount(Editable editable) {
         if (!TextUtils.isEmpty(passwordEditText.getText()) && !TextUtils.isEmpty(editable)) {
             loginButton.setEnabled(true);
@@ -52,7 +53,7 @@ public class LoginActivity extends WfcBaseActivity {
         }
     }
 
-    @OnTextChanged(value = R.id.passwordEditText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
+    @OnTextChanged(value = R2.id.passwordEditText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void inputPassword(Editable editable) {
         if (!TextUtils.isEmpty(accountEditText.getText()) && !TextUtils.isEmpty(editable)) {
             loginButton.setEnabled(true);
@@ -62,7 +63,7 @@ public class LoginActivity extends WfcBaseActivity {
     }
 
 
-    @OnClick(R.id.loginButton)
+    @OnClick(R2.id.loginButton)
     void login() {
 
         String account = accountEditText.getText().toString().trim();

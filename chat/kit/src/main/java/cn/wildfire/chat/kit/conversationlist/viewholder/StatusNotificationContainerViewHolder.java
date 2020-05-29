@@ -19,9 +19,10 @@ import cn.wildfire.chat.kit.conversationlist.notification.StatusNotification;
 import cn.wildfire.chat.kit.conversationlist.notification.StatusNotificationManager;
 import cn.wildfire.chat.kit.conversationlist.notification.viewholder.StatusNotificationViewHolder;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class StatusNotificationContainerViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.notificationContainerLayout)
+    @BindView(R2.id.notificationContainerLayout)
     LinearLayout containerLayout;
 
     public StatusNotificationContainerViewHolder(View itemView) {

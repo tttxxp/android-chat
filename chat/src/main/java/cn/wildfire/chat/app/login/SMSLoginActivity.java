@@ -21,15 +21,16 @@ import cn.wildfire.chat.app.main.MainActivity;
 import cn.wildfire.chat.kit.ChatManagerHolder;
 import cn.wildfire.chat.kit.WfcBaseNoToolbarActivity;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class SMSLoginActivity extends WfcBaseNoToolbarActivity {
-    @BindView(R.id.loginButton)
+    @BindView(R2.id.loginButton)
     Button loginButton;
-    @BindView(R.id.phoneNumberEditText)
+    @BindView(R2.id.phoneNumberEditText)
     EditText phoneNumberEditText;
-    @BindView(R.id.authCodeEditText)
+    @BindView(R2.id.authCodeEditText)
     EditText authCodeEditText;
-    @BindView(R.id.requestAuthCodeButton)
+    @BindView(R2.id.requestAuthCodeButton)
     TextView requestAuthCodeButton;
 
     private String phoneNumber;
@@ -45,7 +46,7 @@ public class SMSLoginActivity extends WfcBaseNoToolbarActivity {
         setStatusBarColor(R.color.white);
     }
 
-    @OnTextChanged(value = R.id.phoneNumberEditText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
+    @OnTextChanged(value = R2.id.phoneNumberEditText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void inputPhoneNumber(Editable editable) {
         String phone = editable.toString().trim();
         if (phone.length() == 11) {
@@ -56,14 +57,14 @@ public class SMSLoginActivity extends WfcBaseNoToolbarActivity {
         }
     }
 
-    @OnTextChanged(value = R.id.authCodeEditText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
+    @OnTextChanged(value = R2.id.authCodeEditText, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void inputAuthCode(Editable editable) {
         if (editable.toString().length() > 2) {
             loginButton.setEnabled(true);
         }
     }
 
-    @OnClick(R.id.loginButton)
+    @OnClick(R2.id.loginButton)
     void login() {
         String phoneNumber = phoneNumberEditText.getText().toString().trim();
         String authCode = authCodeEditText.getText().toString().trim();
@@ -111,7 +112,7 @@ public class SMSLoginActivity extends WfcBaseNoToolbarActivity {
 
     private Handler handler = new Handler();
 
-    @OnClick(R.id.requestAuthCodeButton)
+    @OnClick(R2.id.requestAuthCodeButton)
     void requestAuthCode() {
         requestAuthCodeButton.setEnabled(false);
         handler.postDelayed(new Runnable() {

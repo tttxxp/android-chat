@@ -32,6 +32,7 @@ import cn.wildfire.chat.kit.search.module.ContactSearchModule;
 import cn.wildfire.chat.kit.search.module.GroupSearchViewModule;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.Message;
 import cn.wildfirechat.message.TextMessageContent;
 import cn.wildfirechat.model.Conversation;
@@ -49,7 +50,7 @@ public class ForwardActivity extends WfcBaseActivity {
     private UserViewModel userViewModel;
     private GroupViewModel groupViewModel;
 
-    @BindView(R.id.searchEditText)
+    @BindView(R2.id.searchEditText)
     EditText editText;
 
 
@@ -94,7 +95,7 @@ public class ForwardActivity extends WfcBaseActivity {
         editText.clearFocus();
     }
 
-    @OnTextChanged(value = R.id.searchEditText, callback = AFTER_TEXT_CHANGED)
+    @OnTextChanged(value = R2.id.searchEditText, callback = AFTER_TEXT_CHANGED)
     void search(Editable editable) {
         String keyword = editable.toString().trim();
         FragmentManager fragmentManager = getSupportFragmentManager();

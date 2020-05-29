@@ -70,52 +70,41 @@ public class OptionItemView extends LinearLayout {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.OptionItemView);
         for (int i = 0; i < typedArray.getIndexCount(); i++) {
             int attr = typedArray.getIndex(i);
-            switch (attr) {
-                case R.styleable.OptionItemView_start_src:
-                    int resId = typedArray.getResourceId(attr, 0);
-                    if (resId != 0) {
-                        startImageView.setVisibility(VISIBLE);
-                        startImageView.setImageResource(resId);
-                    } else {
-                        startImageView.setVisibility(GONE);
-                    }
-                    break;
-                case R.styleable.OptionItemView_title:
-                    titleTextView.setText(typedArray.getString(attr));
-                    break;
-                case R.styleable.OptionItemView_badge_count:
-                    int count = typedArray.getInt(attr, 0);
-                    if (count > 0) {
-                        badgeTextView.setVisibility(VISIBLE);
-                        count = count > 99 ? 99 : count;
-                        badgeTextView.setText(count + "");
-                    }
-                    break;
-                case R.styleable.OptionItemView_desc:
-                    String desc = typedArray.getString(attr);
-                    if (!TextUtils.isEmpty(desc)) {
-                        descTextView.setVisibility(VISIBLE);
-                        descTextView.setText(desc);
-                    }
-                    break;
-                case R.styleable.OptionItemView_end_src:
-                    resId = typedArray.getResourceId(attr, 0);
-                    if (resId != 0) {
-                        endImageView.setImageResource(resId);
-                        endImageView.setVisibility(View.VISIBLE);
-                    }
-                    break;
-                case R.styleable.OptionItemView_show_arrow_indicator:
-                    boolean show = typedArray.getBoolean(attr, false);
-                    arrowIndicator.setVisibility(show ? VISIBLE : GONE);
-                    break;
-
-                case R.styleable.OptionItemView_divider_align_to_title:
-                    alignDividerToTitle = typedArray.getBoolean(attr, false);
-                    break;
-
-                default:
-                    break;
+            if (attr == R.styleable.OptionItemView_start_src) {
+                int resId = typedArray.getResourceId(attr, 0);
+                if (resId != 0) {
+                    startImageView.setVisibility(VISIBLE);
+                    startImageView.setImageResource(resId);
+                } else {
+                    startImageView.setVisibility(GONE);
+                }
+            } else if (attr == R.styleable.OptionItemView_title) {
+                titleTextView.setText(typedArray.getString(attr));
+            } else if (attr == R.styleable.OptionItemView_badge_count) {
+                int count = typedArray.getInt(attr, 0);
+                if (count > 0) {
+                    badgeTextView.setVisibility(VISIBLE);
+                    count = count > 99 ? 99 : count;
+                    badgeTextView.setText(count + "");
+                }
+            } else if (attr == R.styleable.OptionItemView_desc) {
+                String desc = typedArray.getString(attr);
+                if (!TextUtils.isEmpty(desc)) {
+                    descTextView.setVisibility(VISIBLE);
+                    descTextView.setText(desc);
+                }
+            } else if (attr == R.styleable.OptionItemView_end_src) {
+                int resId;
+                resId = typedArray.getResourceId(attr, 0);
+                if (resId != 0) {
+                    endImageView.setImageResource(resId);
+                    endImageView.setVisibility(View.VISIBLE);
+                }
+            } else if (attr == R.styleable.OptionItemView_show_arrow_indicator) {
+                boolean show = typedArray.getBoolean(attr, false);
+                arrowIndicator.setVisibility(show ? VISIBLE : GONE);
+            } else if (attr == R.styleable.OptionItemView_divider_align_to_title) {
+                alignDividerToTitle = typedArray.getBoolean(attr, false);
             }
         }
 

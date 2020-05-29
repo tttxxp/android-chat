@@ -22,12 +22,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.remote.ChatManager;
 import cn.wildfirechat.remote.GeneralCallback;
 
 
 public class BlacklistListFragment extends Fragment implements BlacklistListAdapter.OnBlacklistItemClickListener, PopupMenu.OnMenuItemClickListener {
-    @BindView(R.id.recyclerView)
+    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
     private BlacklistViewModel blacklistViewModel;
     private BlacklistListAdapter blacklistListAdapter;

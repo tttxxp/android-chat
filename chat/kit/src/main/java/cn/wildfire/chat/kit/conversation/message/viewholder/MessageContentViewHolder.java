@@ -15,6 +15,7 @@ import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.third.utils.TimeUtils;
 import cn.wildfire.chat.kit.viewmodel.MessageViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.Message;
 
 public abstract class MessageContentViewHolder extends RecyclerView.ViewHolder {
@@ -26,7 +27,7 @@ public abstract class MessageContentViewHolder extends RecyclerView.ViewHolder {
     protected RecyclerView.Adapter adapter;
     protected MessageViewModel messageViewModel;
 
-    @BindView(R.id.timeTextView)
+    @BindView(R2.id.timeTextView)
     TextView timeTextView;
 
 

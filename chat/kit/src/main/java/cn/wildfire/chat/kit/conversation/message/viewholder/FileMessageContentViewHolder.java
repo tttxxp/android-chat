@@ -20,17 +20,18 @@ import cn.wildfire.chat.kit.conversation.ConversationFragment;
 import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.utils.FileUtils;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.FileMessageContent;
 
 @MessageContentType(FileMessageContent.class)
-@ReceiveLayoutRes(resId = R.layout.conversation_item_file_receive)
-@SendLayoutRes(resId = R.layout.conversation_item_file_send)
+@ReceiveLayoutRes(resId = R2.layout.conversation_item_file_receive)
+@SendLayoutRes(resId = R2.layout.conversation_item_file_send)
 @EnableContextMenu
 public class FileMessageContentViewHolder extends MediaMessageContentViewHolder {
 
-    @BindView(R.id.fileNameTextView)
+    @BindView(R2.id.fileNameTextView)
     TextView nameTextView;
-    @BindView(R.id.fileSizeTextView)
+    @BindView(R2.id.fileSizeTextView)
     TextView sizeTextView;
 
     private FileMessageContent fileMessageContent;
@@ -47,7 +48,7 @@ public class FileMessageContentViewHolder extends MediaMessageContentViewHolder 
         sizeTextView.setText(FileUtils.getReadableFileSize(fileMessageContent.getSize()));
     }
 
-    @OnClick(R.id.imageView)
+    @OnClick(R2.id.imageView)
     public void onClick(View view) {
         if (message.isDownloading) {
             return;

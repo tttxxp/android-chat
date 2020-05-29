@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.ChannelInfo;
 
 public class ChannelViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.channelNameTextView)
+    @BindView(R2.id.channelNameTextView)
     TextView channelNameTextView;
 
     public ChannelViewHolder(View itemView) {

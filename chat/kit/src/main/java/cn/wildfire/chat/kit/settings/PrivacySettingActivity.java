@@ -17,6 +17,7 @@ import cn.wildfire.chat.kit.net.SimpleCallback;
 import cn.wildfire.chat.kit.settings.blacklist.BlacklistListActivity;
 import cn.wildfire.chat.kit.widget.OptionItemView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class PrivacySettingActivity extends WfcBaseActivity {
 
@@ -25,13 +26,13 @@ public class PrivacySettingActivity extends WfcBaseActivity {
         return R.layout.privacy_setting_activity;
     }
 
-    @OnClick(R.id.blacklistOptionItemView)
+    @OnClick(R2.id.blacklistOptionItemView)
     void blacklistSettings() {
         Intent intent = new Intent(this, BlacklistListActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.momentsPrivacyOptionItemView)
+    @OnClick(R2.id.momentsPrivacyOptionItemView)
     void mementsSettings() {
 
     }

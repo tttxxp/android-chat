@@ -25,6 +25,7 @@ import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.avenginekit.AVEngineKit;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.UserInfo;
 import cn.wildfirechat.remote.ChatManager;
 
@@ -33,21 +34,21 @@ public class SingleAudioFragment extends Fragment implements AVEngineKit.CallSes
     private boolean audioEnable = true;
     private boolean isSpeakerOn = false;
 
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.muteImageView)
+    @BindView(R2.id.muteImageView)
     ImageView muteImageView;
-    @BindView(R.id.speakerImageView)
+    @BindView(R2.id.speakerImageView)
     ImageView spearImageView;
-    @BindView(R.id.incomingActionContainer)
+    @BindView(R2.id.incomingActionContainer)
     ViewGroup incomingActionContainer;
-    @BindView(R.id.outgoingActionContainer)
+    @BindView(R2.id.outgoingActionContainer)
     ViewGroup outgoingActionContainer;
-    @BindView(R.id.descTextView)
+    @BindView(R2.id.descTextView)
     TextView descTextView;
-    @BindView(R.id.durationTextView)
+    @BindView(R2.id.durationTextView)
     TextView durationTextView;
 
     private static final String TAG = "AudioFragment";
@@ -144,7 +145,7 @@ public class SingleAudioFragment extends Fragment implements AVEngineKit.CallSes
 
     }
 
-    @OnClick(R.id.muteImageView)
+    @OnClick(R2.id.muteImageView)
     public void mute() {
         AVEngineKit.CallSession session = gEngineKit.getCurrentSession();
         if (session != null && session.getState() == AVEngineKit.CallState.Connected) {
@@ -154,7 +155,7 @@ public class SingleAudioFragment extends Fragment implements AVEngineKit.CallSes
         }
     }
 
-    @OnClick({R.id.incomingHangupImageView, R.id.outgoingHangupImageView})
+    @OnClick({R2.id.incomingHangupImageView, R2.id.outgoingHangupImageView})
     public void hangup() {
         AVEngineKit.CallSession session = gEngineKit.getCurrentSession();
         if (session != null) {
@@ -164,7 +165,7 @@ public class SingleAudioFragment extends Fragment implements AVEngineKit.CallSes
         }
     }
 
-    @OnClick(R.id.acceptImageView)
+    @OnClick(R2.id.acceptImageView)
     public void onCallConnect() {
         AVEngineKit.CallSession session = gEngineKit.getCurrentSession();
         if (session == null) {
@@ -178,12 +179,12 @@ public class SingleAudioFragment extends Fragment implements AVEngineKit.CallSes
         }
     }
 
-    @OnClick(R.id.minimizeImageView)
+    @OnClick(R2.id.minimizeImageView)
     public void minimize() {
         ((SingleCallActivity) getActivity()).showFloatingView();
     }
 
-    @OnClick(R.id.speakerImageView)
+    @OnClick(R2.id.speakerImageView)
     public void speakerClick() {
         AVEngineKit.CallSession session = gEngineKit.getCurrentSession();
         if (session == null || session.getState() != AVEngineKit.CallState.Connected) {

@@ -15,16 +15,17 @@ import cn.wildfire.chat.kit.conversation.ConversationFragment;
 import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.widget.BubbleImageView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.VideoMessageContent;
 import cn.wildfirechat.model.Conversation;
 
 @MessageContentType(VideoMessageContent.class)
-@LayoutRes(resId = R.layout.conversation_item_video_send)
+@LayoutRes(resId = R2.layout.conversation_item_video_send)
 @EnableContextMenu
 public class VideoMessageContentViewHolder extends MediaMessageContentViewHolder {
-    @BindView(R.id.imageView)
+    @BindView(R2.id.imageView)
     BubbleImageView imageView;
-    @BindView(R.id.playImageView)
+    @BindView(R2.id.playImageView)
     ImageView playImageView;
 
     public VideoMessageContentViewHolder(ConversationFragment fragment, RecyclerView.Adapter adapter, View itemView) {
@@ -43,7 +44,7 @@ public class VideoMessageContentViewHolder extends MediaMessageContentViewHolder
         }
     }
 
-    @OnClick(R.id.videoContentLayout)
+    @OnClick(R2.id.videoContentLayout)
     void play() {
         previewMM();
     }

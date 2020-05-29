@@ -30,29 +30,30 @@ import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.avenginekit.AVEngineKit;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.UserInfo;
 
 public class SingleVideoFragment extends Fragment implements AVEngineKit.CallSessionCallback {
 
-    @BindView(R.id.pip_video_view)
+    @BindView(R2.id.pip_video_view)
     FrameLayout pipRenderer;
-    @BindView(R.id.fullscreen_video_view)
+    @BindView(R2.id.fullscreen_video_view)
     FrameLayout fullscreenRenderer;
-    @BindView(R.id.outgoingActionContainer)
+    @BindView(R2.id.outgoingActionContainer)
     ViewGroup outgoingActionContainer;
-    @BindView(R.id.incomingActionContainer)
+    @BindView(R2.id.incomingActionContainer)
     ViewGroup incomingActionContainer;
-    @BindView(R.id.connectedActionContainer)
+    @BindView(R2.id.connectedActionContainer)
     ViewGroup connectedActionContainer;
-    @BindView(R.id.inviteeInfoContainer)
+    @BindView(R2.id.inviteeInfoContainer)
     ViewGroup inviteeInfoContainer;
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.descTextView)
+    @BindView(R2.id.descTextView)
     TextView descTextView;
-    @BindView(R.id.durationTextView)
+    @BindView(R2.id.durationTextView)
     TextView durationTextView;
 
     SurfaceView localSurfaceView;
@@ -188,7 +189,7 @@ public class SingleVideoFragment extends Fragment implements AVEngineKit.CallSes
         Log.d(TAG, "voip audio " + userId + " " + volume);
     }
 
-    @OnClick(R.id.acceptImageView)
+    @OnClick(R2.id.acceptImageView)
     public void accept() {
         AVEngineKit.CallSession session = gEngineKit.getCurrentSession();
         if (session == null) {
@@ -205,20 +206,20 @@ public class SingleVideoFragment extends Fragment implements AVEngineKit.CallSes
         }
     }
 
-    @OnClick({R.id.incomingAudioOnlyImageView})
+    @OnClick({R2.id.incomingAudioOnlyImageView})
     public void audioAccept() {
         ((SingleCallActivity) getActivity()).audioAccept();
     }
 
-    @OnClick({R.id.outgoingAudioOnlyImageView, R.id.connectedAudioOnlyImageView})
+    @OnClick({R2.id.outgoingAudioOnlyImageView, R2.id.connectedAudioOnlyImageView})
     public void audioCall() {
         ((SingleCallActivity) getActivity()).audioCall();
     }
 
     // callFragment.OnCallEvents interface implementation.
-    @OnClick({R.id.connectedHangupImageView,
-        R.id.outgoingHangupImageView,
-        R.id.incomingHangupImageView})
+    @OnClick({R2.id.connectedHangupImageView,
+        R2.id.outgoingHangupImageView,
+        R2.id.incomingHangupImageView})
     public void hangUp() {
         AVEngineKit.CallSession session = gEngineKit.getCurrentSession();
         if (session != null) {
@@ -228,7 +229,7 @@ public class SingleVideoFragment extends Fragment implements AVEngineKit.CallSes
         }
     }
 
-    @OnClick(R.id.switchCameraImageView)
+    @OnClick(R2.id.switchCameraImageView)
     public void switchCamera() {
         AVEngineKit.CallSession session = gEngineKit.getCurrentSession();
         if (session != null) {
@@ -251,7 +252,7 @@ public class SingleVideoFragment extends Fragment implements AVEngineKit.CallSes
         }
     }
 
-    @OnClick(R.id.fullscreen_video_view)
+    @OnClick(R2.id.fullscreen_video_view)
     void toggleCallControlVisibility() {
         AVEngineKit.CallSession session = gEngineKit.getCurrentSession();
         if (session == null || session.getState() != AVEngineKit.CallState.Connected) {
@@ -266,7 +267,7 @@ public class SingleVideoFragment extends Fragment implements AVEngineKit.CallSes
         // TODO animation
     }
 
-    @OnClick(R.id.minimizeImageView)
+    @OnClick(R2.id.minimizeImageView)
     public void minimize() {
         gEngineKit.getCurrentSession().stopVideoSource();
         ((SingleCallActivity) getActivity()).showFloatingView();
@@ -282,7 +283,7 @@ public class SingleVideoFragment extends Fragment implements AVEngineKit.CallSes
         logToast.show();
     }
 
-    @OnClick(R.id.pip_video_view)
+    @OnClick(R2.id.pip_video_view)
     void setSwappedFeeds() {
         AVEngineKit.CallSession session = gEngineKit.getCurrentSession();
         if (session != null && session.getState() == AVEngineKit.CallState.Connected) {

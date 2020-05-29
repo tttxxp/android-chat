@@ -8,9 +8,10 @@ import cn.wildfire.chat.kit.contact.UserListAdapter;
 import cn.wildfire.chat.kit.contact.model.GroupValue;
 import cn.wildfire.chat.kit.contact.viewholder.header.HeaderViewHolder;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 @SuppressWarnings("unused")
-@LayoutRes(resId = R.layout.contact_header_group)
+@LayoutRes(resId = R2.layout.contact_header_group)
 public class PickGroupViewHolder extends HeaderViewHolder<GroupValue> {
 
     public PickGroupViewHolder(Fragment fragment, UserListAdapter adapter, View itemView) {

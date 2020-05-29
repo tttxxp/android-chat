@@ -21,14 +21,15 @@ import cn.wildfire.chat.kit.conversation.forward.ForwardActivity;
 import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.StickerMessageContent;
 
 @MessageContentType(StickerMessageContent.class)
-@LayoutRes(resId = R.layout.conversation_item_sticker_send)
+@LayoutRes(resId = R2.layout.conversation_item_sticker_send)
 @EnableContextMenu
 public class ExampleRichNotificationMessageContentViewHolder extends NotificationMessageContentViewHolder {
     private String path;
-    @BindView(R.id.stickerImageView)
+    @BindView(R2.id.stickerImageView)
     ImageView imageView;
 
     public ExampleRichNotificationMessageContentViewHolder(ConversationFragment fragment, RecyclerView.Adapter adapter, View itemView) {
@@ -59,7 +60,7 @@ public class ExampleRichNotificationMessageContentViewHolder extends Notificatio
         }
     }
 
-    @OnClick(R.id.stickerImageView)
+    @OnClick(R2.id.stickerImageView)
     public void onClick(View view) {
         Toast.makeText(fragment.getContext(), "TODO", Toast.LENGTH_SHORT).show();
     }

@@ -22,13 +22,14 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class ScanQRCodeActivity extends WfcBaseActivity {
 
     private CaptureHelper mCaptureHelper;
-    @BindView(R.id.surfaceView)
+    @BindView(R2.id.surfaceView)
     SurfaceView surfaceView;
-    @BindView(R.id.viewfinderView)
+    @BindView(R2.id.viewfinderView)
     ViewfinderView viewfinderView;
 
     private static final int REQUEST_CODE_IMAGE = 100;

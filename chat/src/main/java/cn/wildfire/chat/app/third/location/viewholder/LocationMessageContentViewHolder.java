@@ -21,16 +21,17 @@ import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.conversation.message.viewholder.NormalMessageContentViewHolder;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.LocationMessageContent;
 
 @MessageContentType(LocationMessageContent.class)
-@LayoutRes(resId = R.layout.conversation_item_location_send)
+@LayoutRes(resId = R2.layout.conversation_item_location_send)
 @EnableContextMenu
 public class LocationMessageContentViewHolder extends NormalMessageContentViewHolder {
 
-    @BindView(R.id.locationTitleTextView)
+    @BindView(R2.id.locationTitleTextView)
     TextView locationTitleTextView;
-    @BindView(R.id.locationImageView)
+    @BindView(R2.id.locationImageView)
     ImageView locationImageView;
 
     public LocationMessageContentViewHolder(ConversationFragment fragment, RecyclerView.Adapter adapter, View itemView) {
@@ -54,7 +55,7 @@ public class LocationMessageContentViewHolder extends NormalMessageContentViewHo
         }
     }
 
-    @OnClick(R.id.locationLinearLayout)
+    @OnClick(R2.id.locationLinearLayout)
     public void onClick(View view) {
         Intent intent = new Intent(fragment.getContext(), ShowLocationActivity.class);
         LocationMessageContent content = (LocationMessageContent) message.message.content;

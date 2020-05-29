@@ -11,13 +11,14 @@ import com.bumptech.glide.Glide;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.UserInfo;
 import cn.wildfirechat.remote.ChatManager;
 
 public class BlacklistViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.userNameTextView)
+    @BindView(R2.id.userNameTextView)
     TextView userNameTextView;
 
     public BlacklistViewHolder(View itemView) {

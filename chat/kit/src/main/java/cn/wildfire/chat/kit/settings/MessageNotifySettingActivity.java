@@ -1,6 +1,5 @@
 package cn.wildfire.chat.kit.settings;
 
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.kyleduo.switchbutton.SwitchButton;
@@ -8,20 +7,20 @@ import com.kyleduo.switchbutton.SwitchButton;
 import butterknife.BindView;
 import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.remote.ChatManager;
 import cn.wildfirechat.remote.GeneralCallback;
 
 public class MessageNotifySettingActivity extends WfcBaseActivity {
-    @BindView(R.id.switchMsgNotification)
+    @BindView(R2.id.switchMsgNotification)
     SwitchButton switchMsgNotification;
-    @BindView(R.id.switchShowMsgDetail)
+    @BindView(R2.id.switchShowMsgDetail)
     SwitchButton switchShowMsgDetail;
 
     @Override
     protected int contentLayout() {
         return R.layout.activity_msg_notify_settings;
     }
-
 
 
     @Override

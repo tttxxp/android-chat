@@ -21,6 +21,7 @@ import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfire.chat.kit.conversation.ConversationActivity;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.Conversation;
 import cn.wildfirechat.model.GroupInfo;
 import cn.wildfirechat.model.GroupMember;
@@ -31,11 +32,11 @@ public class GroupInfoActivity extends WfcBaseActivity {
     private GroupInfo groupInfo;
     private boolean isJoined;
     private GroupViewModel groupViewModel;
-    @BindView(R.id.groupNameTextView)
+    @BindView(R2.id.groupNameTextView)
     TextView groupNameTextView;
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView groupPortraitImageView;
-    @BindView(R.id.actionButton)
+    @BindView(R2.id.actionButton)
     Button actionButton;
 
     private MaterialDialog dialog;
@@ -135,7 +136,7 @@ public class GroupInfoActivity extends WfcBaseActivity {
         return R.layout.group_info_activity;
     }
 
-    @OnClick(R.id.actionButton)
+    @OnClick(R2.id.actionButton)
     void action() {
         if (isJoined) {
             Intent intent = ConversationActivity.buildConversationIntent(this, Conversation.ConversationType.Group, groupId, 0);

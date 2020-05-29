@@ -19,20 +19,21 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.ImageMessageContent;
 import cn.wildfirechat.message.Message;
 import cn.wildfirechat.message.VideoMessageContent;
 
 public class ForwardPromptView extends LinearLayout {
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.contentTextView)
+    @BindView(R2.id.contentTextView)
     TextView contentTextView;
-    @BindView(R.id.contentImageView)
+    @BindView(R2.id.contentImageView)
     ImageView contentImageView;
-    @BindView(R.id.editText)
+    @BindView(R2.id.editText)
     EditText editText;
 
     public ForwardPromptView(Context context) {

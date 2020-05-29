@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.wildfire.chat.kit.conversation.ConversationActivity;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.Conversation;
 
 public class ChatRoomListFragment extends Fragment {
@@ -24,7 +25,7 @@ public class ChatRoomListFragment extends Fragment {
         return view;
     }
 
-    @OnClick({R.id.chatRoomTextView_0, R.id.chatRoomTextView_1, R.id.chatRoomTextView_2})
+    @OnClick({R2.id.chatRoomTextView_0, R2.id.chatRoomTextView_1, R2.id.chatRoomTextView_2})
     void joinChatRoom(View view) {
         String roomId = "chatroom1";
         String title = "野火IM聊天室1";

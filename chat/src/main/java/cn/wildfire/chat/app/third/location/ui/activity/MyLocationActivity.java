@@ -41,6 +41,7 @@ import cn.wildfire.chat.app.third.location.ui.presenter.MyLocationAtPresenter;
 import cn.wildfire.chat.app.third.location.ui.view.IMyLocationAtView;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 /**
  * @创建者 CSDN_LQR
@@ -60,17 +61,17 @@ public class MyLocationActivity extends BaseActivity<IMyLocationAtView, MyLocati
     private Circle accuracy;
     private TencentSearch mTencentSearch;
 
-    @BindView(R.id.confirmButton)
+    @BindView(R2.id.confirmButton)
     Button mBtnToolbarSend;
-    @BindView(R.id.rlMap)
+    @BindView(R2.id.rlMap)
     RelativeLayout mRlMap;
-    @BindView(R.id.map)
+    @BindView(R2.id.map)
     MapView mMap;
-    @BindView(R.id.ibShowLocation)
+    @BindView(R2.id.ibShowLocation)
     ImageButton mIbShowLocation;
-    @BindView(R.id.rvPOI)
+    @BindView(R2.id.rvPOI)
     RecyclerView mRvPOI;
-    @BindView(R.id.pb)
+    @BindView(R2.id.pb)
     ProgressBar mPb;
 
     @Override

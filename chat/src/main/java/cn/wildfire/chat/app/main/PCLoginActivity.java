@@ -20,11 +20,12 @@ import cn.wildfire.chat.kit.net.OKHttpHelper;
 import cn.wildfire.chat.kit.net.SimpleCallback;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class PCLoginActivity extends WfcBaseActivity {
     private String token;
     private PCSession pcSession;
-    @BindView(R.id.confirmButton)
+    @BindView(R2.id.confirmButton)
     Button confirmButton;
 
     @Override
@@ -45,7 +46,7 @@ public class PCLoginActivity extends WfcBaseActivity {
         scanPCLogin(token);
     }
 
-    @OnClick(R.id.confirmButton)
+    @OnClick(R2.id.confirmButton)
     void confirmPCLogin() {
         UserViewModel userViewModel =ViewModelProviders.of(this).get(UserViewModel.class);
         confirmPCLogin(token, userViewModel.getUserId());

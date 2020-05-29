@@ -32,17 +32,18 @@ import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.avenginekit.AVEngineKit;
 import cn.wildfirechat.avenginekit.PeerConnectionClient;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.UserInfo;
 import cn.wildfirechat.remote.ChatManager;
 
 public class MultiCallAudioFragment extends Fragment implements AVEngineKit.CallSessionCallback {
-    @BindView(R.id.durationTextView)
+    @BindView(R2.id.durationTextView)
     TextView durationTextView;
-    @BindView(R.id.audioContainerGridLayout)
+    @BindView(R2.id.audioContainerGridLayout)
     GridLayout audioContainerGridLayout;
-    @BindView(R.id.speakerImageView)
+    @BindView(R2.id.speakerImageView)
     ImageView speakerImageView;
-    @BindView(R.id.muteImageView)
+    @BindView(R2.id.muteImageView)
     ImageView muteImageView;
 
     private List<String> participants;
@@ -124,17 +125,17 @@ public class MultiCallAudioFragment extends Fragment implements AVEngineKit.Call
         }
     }
 
-    @OnClick(R.id.minimizeImageView)
+    @OnClick(R2.id.minimizeImageView)
     void minimize() {
         ((MultiCallActivity) getActivity()).showFloatingView();
     }
 
-    @OnClick(R.id.addParticipantImageView)
+    @OnClick(R2.id.addParticipantImageView)
     void addParticipant() {
         ((MultiCallActivity) getActivity()).addParticipant(Config.MAX_AUDIO_PARTICIPANT_COUNT - participants.size() - 1);
     }
 
-    @OnClick(R.id.muteImageView)
+    @OnClick(R2.id.muteImageView)
     void mute() {
         AVEngineKit.CallSession session = AVEngineKit.Instance().getCurrentSession();
         if (session != null && session.getState() == AVEngineKit.CallState.Connected) {
@@ -144,7 +145,7 @@ public class MultiCallAudioFragment extends Fragment implements AVEngineKit.Call
         }
     }
 
-    @OnClick(R.id.speakerImageView)
+    @OnClick(R2.id.speakerImageView)
     void speaker() {
         AVEngineKit.CallSession session = AVEngineKit.Instance().getCurrentSession();
         if (session != null && session.getState() == AVEngineKit.CallState.Connected) {
@@ -156,7 +157,7 @@ public class MultiCallAudioFragment extends Fragment implements AVEngineKit.Call
         }
     }
 
-    @OnClick(R.id.hangupImageView)
+    @OnClick(R2.id.hangupImageView)
     void hangup() {
         AVEngineKit.CallSession session = AVEngineKit.Instance().getCurrentSession();
         if (session != null) {

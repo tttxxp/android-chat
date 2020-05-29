@@ -13,15 +13,16 @@ import cn.wildfire.chat.kit.annotation.StatusNotificationType;
 import cn.wildfire.chat.kit.conversationlist.notification.ConnectionStatusNotification;
 import cn.wildfire.chat.kit.conversationlist.notification.StatusNotification;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
-@LayoutRes(resId = R.layout.conversationlist_item_notification_connection_status)
+@LayoutRes(resId = R2.layout.conversationlist_item_notification_connection_status)
 @StatusNotificationType(ConnectionStatusNotification.class)
 public class ConnectionNotificationViewHolder extends StatusNotificationViewHolder {
     public ConnectionNotificationViewHolder(Fragment fragment) {
         super(fragment);
     }
 
-    @BindView(R.id.statusTextView)
+    @BindView(R2.id.statusTextView)
     TextView statusTextView;
 
     @Override
@@ -30,7 +31,7 @@ public class ConnectionNotificationViewHolder extends StatusNotificationViewHold
         statusTextView.setText(status);
     }
 
-    @OnClick(R.id.statusTextView)
+    @OnClick(R2.id.statusTextView)
     public void onClick() {
         Toast.makeText(fragment.getContext(), "status on Click", Toast.LENGTH_SHORT).show();
     }

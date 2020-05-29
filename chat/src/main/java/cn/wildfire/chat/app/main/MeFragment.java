@@ -35,23 +35,24 @@ import cn.wildfire.chat.kit.user.UserInfoActivity;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfire.chat.kit.widget.OptionItemView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.UserInfo;
 
 public class MeFragment extends Fragment {
 
-    @BindView(R.id.meLinearLayout)
+    @BindView(R2.id.meLinearLayout)
     LinearLayout meLinearLayout;
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.accountTextView)
+    @BindView(R2.id.accountTextView)
     TextView accountTextView;
 
-    @BindView(R.id.notificationOptionItemView)
+    @BindView(R2.id.notificationOptionItemView)
     OptionItemView notificationOptionItem;
 
-    @BindView(R.id.settintOptionItemView)
+    @BindView(R2.id.settintOptionItemView)
     OptionItemView settingOptionItem;
 
     private UserViewModel userViewModel;
@@ -112,14 +113,14 @@ public class MeFragment extends Fragment {
         userViewModel.userInfoLiveData().removeObserver(userInfoLiveDataObserver);
     }
 
-    @OnClick(R.id.meLinearLayout)
+    @OnClick(R2.id.meLinearLayout)
     void showMyInfo() {
         Intent intent = new Intent(getActivity(), UserInfoActivity.class);
         intent.putExtra("userInfo", userInfo);
         startActivity(intent);
     }
 
-    @OnClick(R.id.themeOptionItemView)
+    @OnClick(R2.id.themeOptionItemView)
     void theme() {
         SharedPreferences sp = getActivity().getSharedPreferences("config", Context.MODE_PRIVATE);
         boolean darkTheme = sp.getBoolean("darkTheme", true);
@@ -145,13 +146,13 @@ public class MeFragment extends Fragment {
         startActivity(i);
     }
 
-    @OnClick(R.id.settintOptionItemView)
+    @OnClick(R2.id.settintOptionItemView)
     void setting() {
         Intent intent = new Intent(getActivity(), SettingActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.notificationOptionItemView)
+    @OnClick(R2.id.notificationOptionItemView)
     void msgNotifySetting() {
         Intent intent = new Intent(getActivity(), MessageNotifySettingActivity.class);
         startActivity(intent);

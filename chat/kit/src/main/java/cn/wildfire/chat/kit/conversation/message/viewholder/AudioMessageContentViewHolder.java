@@ -23,23 +23,24 @@ import cn.wildfire.chat.kit.conversation.ConversationFragment;
 import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.SoundMessageContent;
 import cn.wildfirechat.message.core.MessageDirection;
 import cn.wildfirechat.message.core.MessageStatus;
 
 @MessageContentType(SoundMessageContent.class)
-@SendLayoutRes(resId = R.layout.conversation_item_audio_send)
-@ReceiveLayoutRes(resId = R.layout.conversation_item_audio_receive)
+@SendLayoutRes(resId = R2.layout.conversation_item_audio_send)
+@ReceiveLayoutRes(resId = R2.layout.conversation_item_audio_receive)
 @EnableContextMenu
 public class AudioMessageContentViewHolder extends MediaMessageContentViewHolder {
-    @BindView(R.id.audioImageView)
+    @BindView(R2.id.audioImageView)
     ImageView ivAudio;
-    @BindView(R.id.durationTextView)
+    @BindView(R2.id.durationTextView)
     TextView durationTextView;
-    @BindView(R.id.audioContentLayout)
+    @BindView(R2.id.audioContentLayout)
     RelativeLayout contentLayout;
     @Nullable
-    @BindView(R.id.playStatusIndicator)
+    @BindView(R2.id.playStatusIndicator)
     View playStatusIndicator;
 
     public AudioMessageContentViewHolder(ConversationFragment fragment, RecyclerView.Adapter adapter, View itemView) {
@@ -94,7 +95,7 @@ public class AudioMessageContentViewHolder extends MediaMessageContentViewHolder
         // TODO 可实现语音是否持续播放、中断登录逻辑
     }
 
-    @OnClick(R.id.audioContentLayout)
+    @OnClick(R2.id.audioContentLayout)
     public void onClick(View view) {
         File file = messageViewModel.mediaMessageContentFile(message);
         if (file == null) {

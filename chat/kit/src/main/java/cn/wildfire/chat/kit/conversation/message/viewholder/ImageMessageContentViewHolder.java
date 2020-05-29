@@ -21,6 +21,7 @@ import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfire.chat.kit.widget.BubbleImageView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.ImageMessageContent;
 import cn.wildfirechat.message.Message;
 import cn.wildfirechat.message.MessageContent;
@@ -28,12 +29,12 @@ import cn.wildfirechat.message.core.MessageDirection;
 import cn.wildfirechat.message.core.MessageStatus;
 
 @MessageContentType(ImageMessageContent.class)
-@SendLayoutRes(resId = R.layout.conversation_item_image_send)
-@ReceiveLayoutRes(resId = R.layout.conversation_item_image_receive)
+@SendLayoutRes(resId = R2.layout.conversation_item_image_send)
+@ReceiveLayoutRes(resId = R2.layout.conversation_item_image_receive)
 @EnableContextMenu
 public class ImageMessageContentViewHolder extends MediaMessageContentViewHolder {
 
-    @BindView(R.id.imageView)
+    @BindView(R2.id.imageView)
     BubbleImageView imageView;
 
     public ImageMessageContentViewHolder(ConversationFragment fragment, RecyclerView.Adapter adapter, View itemView) {
@@ -67,7 +68,7 @@ public class ImageMessageContentViewHolder extends MediaMessageContentViewHolder
         }
     }
 
-    @OnClick(R.id.imageView)
+    @OnClick(R2.id.imageView)
     void preview() {
         previewMM();
     }

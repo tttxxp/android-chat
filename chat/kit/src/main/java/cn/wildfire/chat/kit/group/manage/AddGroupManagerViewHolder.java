@@ -9,8 +9,9 @@ import cn.wildfire.chat.kit.contact.UserListAdapter;
 import cn.wildfire.chat.kit.contact.model.FooterValue;
 import cn.wildfire.chat.kit.contact.viewholder.footer.FooterViewHolder;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
-@LayoutRes(resId = R.layout.group_manage_item_add_manager)
+@LayoutRes(resId = R2.layout.group_manage_item_add_manager)
 public class AddGroupManagerViewHolder extends FooterViewHolder<FooterValue> {
 
     public AddGroupManagerViewHolder(Fragment fragment, UserListAdapter adapter, View itemView) {

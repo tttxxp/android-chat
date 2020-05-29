@@ -11,12 +11,13 @@ import cn.wildfire.chat.kit.annotation.LayoutRes;
 import cn.wildfire.chat.kit.contact.UserListAdapter;
 import cn.wildfire.chat.kit.contact.model.FriendRequestValue;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.remote.ChatManager;
 
 @SuppressWarnings("unused")
-@LayoutRes(resId = R.layout.contact_header_friend)
+@LayoutRes(resId = R2.layout.contact_header_friend)
 public class FriendRequestViewHolder extends HeaderViewHolder<FriendRequestValue> {
-    @BindView(R.id.unreadFriendRequestCountTextView)
+    @BindView(R2.id.unreadFriendRequestCountTextView)
     TextView unreadRequestCountTextView;
     private FriendRequestValue value;
 

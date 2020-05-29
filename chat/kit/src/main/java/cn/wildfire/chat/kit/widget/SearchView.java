@@ -16,15 +16,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class SearchView extends FrameLayout {
 
-    @BindView(R.id.editText)
+    @BindView(R2.id.editText)
     EditText mEditText;
-    @BindView(R.id.search_cancel)
+    @BindView(R2.id.search_cancel)
     View mCancelView;
 
-    @OnClick(R.id.search_cancel)
+    @OnClick(R2.id.search_cancel)
     public void onCancelClick() {
         mEditText.setText("");
     }

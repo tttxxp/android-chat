@@ -14,10 +14,11 @@ import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfire.chat.kit.contact.ContactViewModel;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.UserInfo;
 
 public class InviteFriendActivity extends WfcBaseActivity {
-    @BindView(R.id.introTextView)
+    @BindView(R2.id.introTextView)
     TextView introTextView;
 
     private UserInfo userInfo;
@@ -44,7 +45,7 @@ public class InviteFriendActivity extends WfcBaseActivity {
         return R.menu.contact_invite;
     }
 
-    @OnClick(R.id.clearImageButton)
+    @OnClick(R2.id.clearImageButton)
     void clear() {
         introTextView.setText("");
     }

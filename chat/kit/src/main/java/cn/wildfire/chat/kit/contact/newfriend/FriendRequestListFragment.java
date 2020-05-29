@@ -21,14 +21,15 @@ import butterknife.ButterKnife;
 import cn.wildfire.chat.kit.contact.ContactViewModel;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.FriendRequest;
 
 public class FriendRequestListFragment extends Fragment {
-    @BindView(R.id.noNewFriendLinearLayout)
+    @BindView(R2.id.noNewFriendLinearLayout)
     LinearLayout noNewFriendLinearLayout;
-    @BindView(R.id.newFriendListLinearLayout)
+    @BindView(R2.id.newFriendListLinearLayout)
     LinearLayout newFriendLinearLayout;
-    @BindView(R.id.friendRequestListRecyclerView)
+    @BindView(R2.id.friendRequestListRecyclerView)
     RecyclerView recyclerView;
 
     private ContactViewModel contactViewModel;

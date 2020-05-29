@@ -25,6 +25,7 @@ import cn.wildfire.chat.kit.conversationlist.ConversationListViewModelFactory;
 import cn.wildfire.chat.kit.group.GroupViewModel;
 import cn.wildfire.chat.kit.third.utils.TimeUtils;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.Message;
 import cn.wildfirechat.message.core.MessageDirection;
 import cn.wildfirechat.message.notification.NotificationMessageContent;
@@ -39,24 +40,24 @@ public abstract class ConversationViewHolder extends RecyclerView.ViewHolder {
     protected RecyclerView.Adapter adapter;
     protected ConversationListViewModel conversationListViewModel;
 
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     protected TextView nameTextView;
-    @BindView(R.id.timeTextView)
+    @BindView(R2.id.timeTextView)
     protected TextView timeTextView;
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     protected ImageView portraitImageView;
-    @BindView(R.id.slient)
+    @BindView(R2.id.slient)
     protected ImageView silentImageView;
-    @BindView(R.id.unreadCountTextView)
+    @BindView(R2.id.unreadCountTextView)
     protected TextView unreadCountTextView;
-    @BindView(R.id.redDotView)
+    @BindView(R2.id.redDotView)
     protected View redDotView;
-    @BindView(R.id.contentTextView)
+    @BindView(R2.id.contentTextView)
     protected TextView contentTextView;
-    @BindView(R.id.promptTextView)
+    @BindView(R2.id.promptTextView)
     protected TextView promptTextView;
 
-    @BindView(R.id.statusImageView)
+    @BindView(R2.id.statusImageView)
     protected ImageView statusImageView;
 
     public ConversationViewHolder(Fragment fragment, RecyclerView.Adapter adapter, View itemView) {

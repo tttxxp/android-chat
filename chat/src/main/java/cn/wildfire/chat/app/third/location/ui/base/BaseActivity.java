@@ -19,27 +19,28 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
 
     protected T mPresenter;
 
     //以下是所有Activity中可能会出现的控件
-    @BindView(R.id.appBarLayout)
+    @BindView(R2.id.appBarLayout)
     protected AppBarLayout mAppBar;
-    //    @BindView(R.id.toolbar)
+    //    @BindView(R2.id.toolbar)
     //    protected Toolbar mToolbar;
-    @BindView(R.id.toolbarContainerFrameLayout)
+    @BindView(R2.id.toolbarContainerFrameLayout)
     public FrameLayout mToolbar;
-    @BindView(R.id.backImageView)
+    @BindView(R2.id.backImageView)
     public ImageView mToolbarNavigation;
-    @BindView(R.id.backDividerView)
+    @BindView(R2.id.backDividerView)
     public View mToolbarDivision;
-    @BindView(R.id.titleLinearLayout)
+    @BindView(R2.id.titleLinearLayout)
     public LinearLayout mLlToolbarTitle;
-    @BindView(R.id.titleTextView)
+    @BindView(R2.id.titleTextView)
     public TextView mToolbarTitle;
-    @BindView(R.id.subTitleTextView)
+    @BindView(R2.id.subTitleTextView)
     public TextView mToolbarSubTitle;
 
     @Override

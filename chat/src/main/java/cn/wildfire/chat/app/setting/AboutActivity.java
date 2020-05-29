@@ -10,10 +10,11 @@ import cn.wildfire.chat.app.Config;
 import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfire.chat.kit.WfcWebViewActivity;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class AboutActivity extends WfcBaseActivity {
 
-    @BindView(R.id.infoTextView)
+    @BindView(R2.id.infoTextView)
     TextView infoTextView;
 
     @Override
@@ -39,17 +40,17 @@ public class AboutActivity extends WfcBaseActivity {
         }
     }
 
-    @OnClick(R.id.introOptionItemView)
+    @OnClick(R2.id.introOptionItemView)
     public void intro() {
         WfcWebViewActivity.loadUrl(this, "野火IM功能介绍", "http://docs.wildfirechat.cn/");
     }
 
-    @OnClick(R.id.agreementOptionItemView)
+    @OnClick(R2.id.agreementOptionItemView)
     public void agreement() {
         WfcWebViewActivity.loadUrl(this, "野火IM用户协议", "http://www.wildfirechat.cn/firechat_user_agreement.html");
     }
 
-    @OnClick(R.id.privacyOptionItemView)
+    @OnClick(R2.id.privacyOptionItemView)
     public void privacy() {
         WfcWebViewActivity.loadUrl(this, "野火IM个人信息保护政策", "http://www.wildfirechat.cn/firechat_user_privacy.html");
     }

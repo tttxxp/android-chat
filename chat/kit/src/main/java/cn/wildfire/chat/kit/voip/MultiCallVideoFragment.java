@@ -36,20 +36,21 @@ import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.avenginekit.AVEngineKit;
 import cn.wildfirechat.avenginekit.PeerConnectionClient;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.UserInfo;
 
 public class MultiCallVideoFragment extends Fragment implements AVEngineKit.CallSessionCallback {
-    @BindView(R.id.rootView)
+    @BindView(R2.id.rootView)
     LinearLayout rootLinearLayout;
-    @BindView(R.id.durationTextView)
+    @BindView(R2.id.durationTextView)
     TextView durationTextView;
-    @BindView(R.id.videoContainerGridLayout)
+    @BindView(R2.id.videoContainerGridLayout)
     GridLayout participantGridView;
-    @BindView(R.id.focusVideoContainerFrameLayout)
+    @BindView(R2.id.focusVideoContainerFrameLayout)
     FrameLayout focusVideoContainerFrameLayout;
-    @BindView(R.id.muteImageView)
+    @BindView(R2.id.muteImageView)
     ImageView muteImageView;
-    @BindView(R.id.videoImageView)
+    @BindView(R2.id.videoImageView)
     ImageView videoImageView;
 
     private List<String> participants;
@@ -168,7 +169,7 @@ public class MultiCallVideoFragment extends Fragment implements AVEngineKit.Call
     }
 
 
-    @OnClick(R.id.minimizeImageView)
+    @OnClick(R2.id.minimizeImageView)
     void minimize() {
         AVEngineKit.CallSession session = getEngineKit().getCurrentSession();
         session.stopVideoSource();
@@ -179,12 +180,12 @@ public class MultiCallVideoFragment extends Fragment implements AVEngineKit.Call
         ((MultiCallActivity) getActivity()).showFloatingView();
     }
 
-    @OnClick(R.id.addParticipantImageView)
+    @OnClick(R2.id.addParticipantImageView)
     void addParticipant() {
         ((MultiCallActivity) getActivity()).addParticipant(Config.MAX_VIDEO_PARTICIPANT_COUNT - participants.size() - 1);
     }
 
-    @OnClick(R.id.muteImageView)
+    @OnClick(R2.id.muteImageView)
     void mute() {
         AVEngineKit.CallSession session = AVEngineKit.Instance().getCurrentSession();
         if (session != null && session.getState() == AVEngineKit.CallState.Connected) {
@@ -194,7 +195,7 @@ public class MultiCallVideoFragment extends Fragment implements AVEngineKit.Call
         }
     }
 
-    @OnClick(R.id.switchCameraImageView)
+    @OnClick(R2.id.switchCameraImageView)
     void switchCamera() {
         AVEngineKit.CallSession session = getEngineKit().getCurrentSession();
         if (session != null && session.getState() == AVEngineKit.CallState.Connected) {
@@ -202,7 +203,7 @@ public class MultiCallVideoFragment extends Fragment implements AVEngineKit.Call
         }
     }
 
-    @OnClick(R.id.videoImageView)
+    @OnClick(R2.id.videoImageView)
     void video() {
         AVEngineKit.CallSession session = getEngineKit().getCurrentSession();
         if (session != null && session.getState() == AVEngineKit.CallState.Connected) {
@@ -212,7 +213,7 @@ public class MultiCallVideoFragment extends Fragment implements AVEngineKit.Call
         }
     }
 
-    @OnClick(R.id.hangupImageView)
+    @OnClick(R2.id.hangupImageView)
     void hangup() {
         AVEngineKit.CallSession session = getEngineKit().getCurrentSession();
         if (session != null) {

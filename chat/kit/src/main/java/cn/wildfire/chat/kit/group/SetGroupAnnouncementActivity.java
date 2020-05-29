@@ -14,10 +14,11 @@ import cn.wildfire.chat.kit.AppServiceProvider;
 import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfire.chat.kit.WfcUIKit;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.GroupInfo;
 
 public class SetGroupAnnouncementActivity extends WfcBaseActivity {
-    @BindView(R.id.announcementEditText)
+    @BindView(R2.id.announcementEditText)
     EditText announcementEditText;
 
     private MenuItem confirmMenuItem;
@@ -81,7 +82,7 @@ public class SetGroupAnnouncementActivity extends WfcBaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @OnTextChanged(R.id.announcementEditText)
+    @OnTextChanged(R2.id.announcementEditText)
     void onTextChanged() {
         if (confirmMenuItem != null) {
             confirmMenuItem.setEnabled(announcementEditText.getText().toString().trim().length() > 0);

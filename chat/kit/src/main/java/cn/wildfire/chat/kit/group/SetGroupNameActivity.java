@@ -19,11 +19,12 @@ import butterknife.OnTextChanged;
 import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfire.chat.kit.common.OperateResult;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.GroupInfo;
 import cn.wildfirechat.model.ModifyGroupInfoType;
 
 public class SetGroupNameActivity extends WfcBaseActivity {
-    @BindView(R.id.nameEditText)
+    @BindView(R2.id.nameEditText)
     EditText nameEditText;
 
     private MenuItem confirmMenuItem;
@@ -74,7 +75,7 @@ public class SetGroupNameActivity extends WfcBaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @OnTextChanged(R.id.nameEditText)
+    @OnTextChanged(R2.id.nameEditText)
     void onTextChanged() {
         if (confirmMenuItem != null) {
             confirmMenuItem.setEnabled(nameEditText.getText().toString().trim().length() > 0);

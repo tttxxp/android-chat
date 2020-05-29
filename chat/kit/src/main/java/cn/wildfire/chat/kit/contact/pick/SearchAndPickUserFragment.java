@@ -22,15 +22,16 @@ import butterknife.OnClick;
 import cn.wildfire.chat.kit.contact.UserListAdapter;
 import cn.wildfire.chat.kit.contact.model.UIUserInfo;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class SearchAndPickUserFragment extends Fragment implements UserListAdapter.OnUserClickListener {
     private CheckableUserListAdapter contactAdapter;
     private PickUserViewModel pickUserViewModel;
     private PickUserFragment pickUserFragment;
 
-    @BindView(R.id.usersRecyclerView)
+    @BindView(R2.id.usersRecyclerView)
     RecyclerView contactRecyclerView;
-    @BindView(R.id.tipTextView)
+    @BindView(R2.id.tipTextView)
     TextView tipTextView;
 
     @Nullable
@@ -47,7 +48,7 @@ public class SearchAndPickUserFragment extends Fragment implements UserListAdapt
     }
 
 
-    @OnClick(R.id.tipTextView)
+    @OnClick(R2.id.tipTextView)
     void onTipTextViewClick() {
         pickUserFragment.hideSearchContactFragment();
     }

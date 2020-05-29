@@ -10,14 +10,15 @@ import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.GroupSearchResult;
 
 public class GroupViewHolder extends ResultItemViewHolder<GroupSearchResult> {
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.descTextView)
+    @BindView(R2.id.descTextView)
     TextView descTextView;
 
     public GroupViewHolder(Fragment fragment, View itemView) {

@@ -11,6 +11,7 @@ import cn.wildfire.chat.kit.annotation.MessageContentType;
 import cn.wildfire.chat.kit.conversation.ConversationFragment;
 import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.AddParticipantsMessageContent;
 import cn.wildfirechat.message.notification.AddGroupMemberNotificationContent;
 import cn.wildfirechat.message.notification.ChangeGroupNameNotificationContent;
@@ -50,14 +51,14 @@ import cn.wildfirechat.message.notification.TransferGroupOwnerNotificationConten
         // TODO add more
 
 })
-@LayoutRes(resId = R.layout.conversation_item_notification)
+@LayoutRes(resId = R2.layout.conversation_item_notification)
 /**
  * 小灰条消息, 居中显示，且不显示发送者，用于简单通知，如果需要扩展成复杂通知，可以参考 {@link ExampleRichNotificationMessageContentViewHolder}
  *
  */
 public class SimpleNotificationMessageContentViewHolder extends NotificationMessageContentViewHolder {
 
-    @BindView(R.id.notificationTextView)
+    @BindView(R2.id.notificationTextView)
     TextView notificationTextView;
 
     public SimpleNotificationMessageContentViewHolder(ConversationFragment fragment, RecyclerView.Adapter adapter, View itemView) {

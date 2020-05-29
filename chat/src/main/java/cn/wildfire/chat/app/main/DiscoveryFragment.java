@@ -25,13 +25,14 @@ import cn.wildfire.chat.kit.conversation.ConversationActivity;
 import cn.wildfire.chat.kit.viewmodel.MessageViewModel;
 import cn.wildfire.chat.kit.widget.OptionItemView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.Message;
 import cn.wildfirechat.message.core.MessageStatus;
 import cn.wildfirechat.model.Conversation;
 import cn.wildfirechat.remote.ChatManager;
 
 public class DiscoveryFragment extends Fragment {
-    @BindView(R.id.momentOptionItemView)
+    @BindView(R2.id.momentOptionItemView)
     OptionItemView momentOptionItemView;
 
     @Nullable
@@ -57,24 +58,24 @@ public class DiscoveryFragment extends Fragment {
         }
     }
 
-    @OnClick(R.id.chatRoomOptionItemView)
+    @OnClick(R2.id.chatRoomOptionItemView)
     void chatRoom() {
         Intent intent = new Intent(getActivity(), ChatRoomListActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.robotOptionItemView)
+    @OnClick(R2.id.robotOptionItemView)
     void robot() {
         Intent intent = ConversationActivity.buildConversationIntent(getActivity(), Conversation.ConversationType.Single, "FireRobot", 0);
         startActivity(intent);
     }
 
-    @OnClick(R.id.channelOptionItemView)
+    @OnClick(R2.id.channelOptionItemView)
     void channel() {
 
     }
 
-    @OnClick(R.id.cookbookOptionItemView)
+    @OnClick(R2.id.cookbookOptionItemView)
     void cookbook() {
         WfcWebViewActivity.loadUrl(getContext(), "野火IM开发文档", "https://docs.wildfirechat.cn");
     }
@@ -90,7 +91,7 @@ public class DiscoveryFragment extends Fragment {
         messageViewModel.clearMessageLiveData().observe(this, o -> updateMomentBadgeView());
     }
 
-    @OnClick(R.id.momentOptionItemView)
+    @OnClick(R2.id.momentOptionItemView)
     void moment() {
         Intent intent = new Intent(WfcIntent.ACTION_MOMENT);
         startActivity(intent);

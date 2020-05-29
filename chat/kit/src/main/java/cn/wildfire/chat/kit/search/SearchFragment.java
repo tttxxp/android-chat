@@ -21,13 +21,14 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class SearchFragment extends Fragment {
-    @BindView(R.id.recyclerView)
+    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
-    @BindView(R.id.emptyLinearLayout)
+    @BindView(R2.id.emptyLinearLayout)
     LinearLayout emptyLinearLayout;
-    @BindView(R.id.descLinearLayout)
+    @BindView(R2.id.descLinearLayout)
     LinearLayout descLinearLayout;
     private SearchResultAdapter adapter;
     private SearchViewModel searchViewModel;

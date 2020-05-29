@@ -16,6 +16,7 @@ import cn.wildfire.chat.kit.common.OperateResult;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfire.chat.kit.contact.ContactViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 
 public class SetAliasActivity extends WfcBaseActivity {
@@ -23,7 +24,7 @@ public class SetAliasActivity extends WfcBaseActivity {
     private String userId;
 //    private Friend mFriend;
 
-    @BindView(R.id.aliasEditText)
+    @BindView(R2.id.aliasEditText)
     EditText aliasEditText;
 
     private MenuItem menuItem;
@@ -68,7 +69,7 @@ public class SetAliasActivity extends WfcBaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @OnTextChanged(R.id.aliasEditText)
+    @OnTextChanged(R2.id.aliasEditText)
     void onAliasEditTextChange() {
         menuItem.setEnabled(aliasEditText.getText().toString().trim().length() > 0 ? true : false);
     }

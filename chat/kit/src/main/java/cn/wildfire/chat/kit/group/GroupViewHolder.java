@@ -11,18 +11,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.GroupInfo;
 
 public class GroupViewHolder extends RecyclerView.ViewHolder {
     protected Fragment fragment;
     private GroupListAdapter adapter;
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.categoryTextView)
+    @BindView(R2.id.categoryTextView)
     TextView categoryTextView;
-    @BindView(R.id.dividerLine)
+    @BindView(R2.id.dividerLine)
     View dividerLine;
 
     protected GroupInfo groupInfo;

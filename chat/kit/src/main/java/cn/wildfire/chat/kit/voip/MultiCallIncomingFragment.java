@@ -28,15 +28,16 @@ import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.avenginekit.AVEngineKit;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.UserInfo;
 
 public class MultiCallIncomingFragment extends Fragment implements AVEngineKit.CallSessionCallback {
 
-    @BindView(R.id.invitorImageView)
+    @BindView(R2.id.invitorImageView)
     ImageView invitorImageView;
-    @BindView(R.id.invitorTextView)
+    @BindView(R2.id.invitorTextView)
     TextView invitorTextView;
-    @BindView(R.id.participantGridView)
+    @BindView(R2.id.participantGridView)
     RecyclerView participantRecyclerView;
 
     @Nullable
@@ -74,12 +75,12 @@ public class MultiCallIncomingFragment extends Fragment implements AVEngineKit.C
     }
 
 
-    @OnClick(R.id.hangupImageView)
+    @OnClick(R2.id.hangupImageView)
     void hangup() {
         ((MultiCallActivity) getActivity()).hangup();
     }
 
-    @OnClick(R.id.acceptImageView)
+    @OnClick(R2.id.acceptImageView)
     void accept() {
         ((MultiCallActivity) getActivity()).accept();
     }

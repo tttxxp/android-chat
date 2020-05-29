@@ -17,13 +17,14 @@ import butterknife.BindView;
 import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class QRCodeActivity extends WfcBaseActivity {
     private String title;
     private String logoUrl;
     private String qrCodeValue;
 
-    @BindView(R.id.qrCodeImageView)
+    @BindView(R2.id.qrCodeImageView)
     ImageView qrCodeImageView;
 
     public static Intent buildQRCodeIntent(Context context, String title, String logoUrl, String qrCodeValue) {

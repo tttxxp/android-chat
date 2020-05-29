@@ -16,15 +16,16 @@ import cn.wildfire.chat.kit.annotation.SendLayoutRes;
 import cn.wildfire.chat.kit.conversation.ConversationFragment;
 import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.CallStartMessageContent;
 import cn.wildfirechat.model.Conversation;
 
 @MessageContentType(CallStartMessageContent.class)
-@ReceiveLayoutRes(resId = R.layout.conversation_item_voip_receive)
-@SendLayoutRes(resId = R.layout.conversation_item_voip_send)
+@ReceiveLayoutRes(resId = R2.layout.conversation_item_voip_receive)
+@SendLayoutRes(resId = R2.layout.conversation_item_voip_send)
 @EnableContextMenu
 public class VoipMessageViewHolder extends NormalMessageContentViewHolder {
-    @BindView(R.id.contentTextView)
+    @BindView(R2.id.contentTextView)
     TextView textView;
 
     public VoipMessageViewHolder(ConversationFragment fragment, RecyclerView.Adapter adapter, View itemView) {
@@ -49,7 +50,7 @@ public class VoipMessageViewHolder extends NormalMessageContentViewHolder {
         }
     }
 
-    @OnClick(R.id.contentTextView)
+    @OnClick(R2.id.contentTextView)
     public void call(View view) {
         if (((CallStartMessageContent) message.message.content).getStatus() == 1) {
             return;

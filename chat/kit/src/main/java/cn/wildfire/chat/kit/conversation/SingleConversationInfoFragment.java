@@ -32,6 +32,7 @@ import cn.wildfire.chat.kit.search.SearchMessageActivity;
 import cn.wildfire.chat.kit.user.UserInfoActivity;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.Conversation;
 import cn.wildfirechat.model.ConversationInfo;
 import cn.wildfirechat.model.UserInfo;
@@ -39,11 +40,11 @@ import cn.wildfirechat.model.UserInfo;
 public class SingleConversationInfoFragment extends Fragment implements ConversationMemberAdapter.OnMemberClickListener, CompoundButton.OnCheckedChangeListener {
 
     // common
-    @BindView(R.id.memberRecyclerView)
+    @BindView(R2.id.memberRecyclerView)
     RecyclerView memberReclerView;
-    @BindView(R.id.stickTopSwitchButton)
+    @BindView(R2.id.stickTopSwitchButton)
     SwitchButton stickTopSwitchButton;
-    @BindView(R.id.silentSwitchButton)
+    @BindView(R2.id.silentSwitchButton)
     SwitchButton silentSwitchButton;
 
     private ConversationInfo conversationInfo;
@@ -110,12 +111,12 @@ public class SingleConversationInfoFragment extends Fragment implements Conversa
         });
     }
 
-    @OnClick(R.id.clearMessagesOptionItemView)
+    @OnClick(R2.id.clearMessagesOptionItemView)
     void clearMessage() {
         conversationViewModel.clearConversationMessage(conversationInfo.conversation);
     }
 
-    @OnClick(R.id.searchMessageOptionItemView)
+    @OnClick(R2.id.searchMessageOptionItemView)
     void searchGroupMessage() {
         Intent intent = new Intent(getActivity(), SearchMessageActivity.class);
         intent.putExtra("conversation", conversationInfo.conversation);
@@ -156,15 +157,11 @@ public class SingleConversationInfoFragment extends Fragment implements Conversa
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (buttonView.getId()) {
-            case R.id.stickTopSwitchButton:
-                stickTop(isChecked);
-                break;
-            case R.id.silentSwitchButton:
-                silent(isChecked);
-                break;
-            default:
-                break;
+        int id = buttonView.getId();
+        if (id == R.id.stickTopSwitchButton) {
+            stickTop(isChecked);
+        } else if (id == R.id.silentSwitchButton) {
+            silent(isChecked);
         }
 
     }

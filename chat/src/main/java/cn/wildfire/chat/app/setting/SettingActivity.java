@@ -17,9 +17,10 @@ import cn.wildfire.chat.kit.net.SimpleCallback;
 import cn.wildfire.chat.kit.settings.PrivacySettingActivity;
 import cn.wildfire.chat.kit.widget.OptionItemView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class SettingActivity extends WfcBaseActivity {
-    @BindView(R.id.diagnoseOptionItemView)
+    @BindView(R2.id.diagnoseOptionItemView)
     OptionItemView diagnoseOptionItemView;
 
     @Override
@@ -27,7 +28,7 @@ public class SettingActivity extends WfcBaseActivity {
         return R.layout.setting_activity;
     }
 
-    @OnClick(R.id.exitOptionItemView)
+    @OnClick(R2.id.exitOptionItemView)
     void exit() {
         //不要清除session，这样再次登录时能够保留历史记录。如果需要清除掉本地历史记录和服务器信息这里使用true
         ChatManagerHolder.gChatManager.disconnect(true, false);
@@ -41,13 +42,13 @@ public class SettingActivity extends WfcBaseActivity {
         finish();
     }
 
-    @OnClick(R.id.privacySettingOptionItemView)
+    @OnClick(R2.id.privacySettingOptionItemView)
     void privacySetting() {
         Intent intent = new Intent(this, PrivacySettingActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.diagnoseOptionItemView)
+    @OnClick(R2.id.diagnoseOptionItemView)
     void diagnose() {
         long start = System.currentTimeMillis();
         OKHttpHelper.get("http://" + Config.IM_SERVER_HOST + "/api/version", null, new SimpleCallback<String>() {
@@ -67,7 +68,7 @@ public class SettingActivity extends WfcBaseActivity {
 
     }
 
-    @OnClick(R.id.uploadLogOptionItemView)
+    @OnClick(R2.id.uploadLogOptionItemView)
     void uploadLog() {
         AppService.Instance().uploadLog(new SimpleCallback<String>() {
             @Override
@@ -86,7 +87,7 @@ public class SettingActivity extends WfcBaseActivity {
         });
     }
 
-    @OnClick(R.id.aboutOptionItemView)
+    @OnClick(R2.id.aboutOptionItemView)
     void about() {
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);

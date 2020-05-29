@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import cn.wildfire.chat.kit.group.GroupViewModel;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.Conversation;
 import cn.wildfirechat.model.ConversationInfo;
 import cn.wildfirechat.model.GroupInfo;
@@ -25,9 +26,9 @@ public class ConversationViewHolder extends RecyclerView.ViewHolder {
     private Fragment fragment;
     private UserViewModel userViewModel;
     private GroupViewModel groupViewModel;
-    @BindView(R.id.nameTextView)
+    @BindView(R2.id.nameTextView)
     TextView nameTextView;
-    @BindView(R.id.portraitImageView)
+    @BindView(R2.id.portraitImageView)
     ImageView portraitImageView;
 
     public ConversationViewHolder(Fragment fragment, View itemView) {

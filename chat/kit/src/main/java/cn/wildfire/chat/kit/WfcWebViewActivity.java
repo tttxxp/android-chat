@@ -8,11 +8,12 @@ import android.webkit.WebViewClient;
 
 import butterknife.BindView;
 import cn.wildfirechat.chat.R;
+import cn.wildfirechat.chat.R2;
 
 public class WfcWebViewActivity extends WfcBaseActivity {
     private String url;
 
-    @BindView(R.id.webview)
+    @BindView(R2.id.webview)
     WebView webView;
 
     public static void loadUrl(Context context, String title, String url) {
