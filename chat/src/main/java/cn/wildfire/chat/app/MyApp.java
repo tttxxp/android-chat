@@ -13,8 +13,9 @@ import cn.wildfire.chat.kit.conversation.message.viewholder.MessageViewHolderMan
 import cn.wildfirechat.chat.BuildConfig;
 import cn.wildfirechat.push.PushService;
 
-
 public class MyApp extends BaseApp {
+
+    public static final String APPLICATION_ID = "cn.wildfire.chat.app";
 
     @Override
     public void onCreate() {
@@ -26,11 +27,11 @@ public class MyApp extends BaseApp {
             CrashReport.initCrashReport(getApplicationContext(), Config.BUGLY_ID, false);
         }
         // 只在主进程初始化
-        if (getCurProcessName(this).equals(BuildConfig.APPLICATION_ID)) {
+        if (getCurProcessName(this).equals(APPLICATION_ID)) {
             WfcUIKit wfcUIKit = WfcUIKit.getWfcUIKit();
             wfcUIKit.init(this);
             wfcUIKit.setAppServiceProvider(AppService.Instance());
-            PushService.init(this, BuildConfig.APPLICATION_ID);
+            PushService.init(this, APPLICATION_ID);
             MessageViewHolderManager.getInstance().registerMessageViewHolder(LocationMessageContentViewHolder.class);
             setupWFCDirs();
         }

@@ -40,13 +40,15 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
-    <application
+    <!--
         android:name="cn.wildfire.chat.app.MyApp"
+        android:theme="@style/AppTheme"
+    -->
+    <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
 
@@ -73,7 +75,7 @@
             android:name="TencentMapSDK"
             android:value="TOEBZ-67IR4-ZDHUV-DSDXX-TJZU7-UYFE7" />
 
-        <activity
+        <!--<activity
             android:name="cn.wildfire.chat.app.main.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.FullScreen">
@@ -81,7 +83,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>-->
         <activity
             android:name="cn.wildfire.chat.kit.conversation.ConversationActivity"
             android:launchMode="singleTask"
@@ -268,7 +270,7 @@
 
         <activity android:name="cn.wildfire.chat.app.main.PCSessionActivity" />
 
-        <provider
+       <!-- <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
@@ -276,7 +278,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
-        </provider>
+        </provider>-->
 
         <service android:name="cn.wildfire.chat.kit.voip.VoipCallService" />
     </application>

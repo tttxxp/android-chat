@@ -110,6 +110,9 @@ dependencies {
     implementation 'com.google.android:flexbox:2.0.1'
     // kit wfc end
 
+    // multi dex
+    implementation 'androidx.multidex:multidex:2.0.1'
+
     // moment start
     //over scroller helper
 //    api 'me.everything:overscroll-decor-android:1.0.4'
