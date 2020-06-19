@@ -18,6 +18,7 @@ import cn.wildfire.chat.kit.annotation.LayoutRes;
 import cn.wildfire.chat.kit.conversationlist.notification.StatusNotification;
 import cn.wildfire.chat.kit.conversationlist.notification.StatusNotificationManager;
 import cn.wildfire.chat.kit.conversationlist.notification.viewholder.StatusNotificationViewHolder;
+import cn.wildfire.chat.kit.utils.R2Utils;
 import cn.wildfirechat.chat.R;
 import cn.wildfirechat.chat.R2;
 
@@ -42,7 +43,8 @@ public class StatusNotificationContainerViewHolder extends RecyclerView.ViewHold
                 Constructor constructor = holderClass.getConstructor(Fragment.class);
                 statusNotificationViewHolder = (StatusNotificationViewHolder) constructor.newInstance(fragment);
                 LayoutRes layoutRes = holderClass.getAnnotation(LayoutRes.class);
-                view = layoutInflater.inflate(layoutRes.resId(), (ViewGroup) itemView, false);
+                int resId = R2Utils.LAYOUT_ARRAY.get(layoutRes.resId());
+                view = layoutInflater.inflate(resId, (ViewGroup) itemView, false);
                 ButterKnife.bind(statusNotificationViewHolder, view);
 
                 statusNotificationViewHolder.onBind(view, notification);

@@ -18,8 +18,6 @@ public class BaseApp extends MultiDexApplication {
 
         //对全局属性赋值
         mContext = getApplicationContext();
-        mMainThreadId = android.os.Process.myTid();
-        mHandler = new Handler();
     }
 
     public static Context getContext() {
@@ -28,6 +26,8 @@ public class BaseApp extends MultiDexApplication {
 
     public static void setContext(Context mContext) {
         BaseApp.mContext = mContext;
+        mMainThreadId = android.os.Process.myTid();
+        mHandler = new Handler();
     }
 
     public static long getMainThreadId() {

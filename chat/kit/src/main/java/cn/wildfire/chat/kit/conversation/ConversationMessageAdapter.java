@@ -36,6 +36,7 @@ import cn.wildfire.chat.kit.conversation.message.viewholder.MessageContentViewHo
 import cn.wildfire.chat.kit.conversation.message.viewholder.MessageViewHolderManager;
 import cn.wildfire.chat.kit.conversation.message.viewholder.NormalMessageContentViewHolder;
 import cn.wildfire.chat.kit.conversation.message.viewholder.NotificationMessageContentViewHolder;
+import cn.wildfire.chat.kit.utils.R2Utils;
 import cn.wildfirechat.chat.R;
 import cn.wildfirechat.message.Message;
 import cn.wildfirechat.model.UserInfo;
@@ -247,12 +248,14 @@ public class ConversationMessageAdapter extends RecyclerView.Adapter<RecyclerVie
         } else if (layoutRes != null) {
             sendResId = layoutRes.resId();
         }
+        sendResId = R2Utils.LAYOUT_ARRAY.get(sendResId);
 
         if (receiveLayoutRes != null) {
             receiveResId = receiveLayoutRes.resId();
         } else if (layoutRes != null) {
             receiveResId = layoutRes.resId();
         }
+        receiveResId = R2Utils.LAYOUT_ARRAY.get(receiveResId);
 
         View itemView;
         ViewStub viewStub;

@@ -15,7 +15,6 @@ import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
 import cn.wildfire.chat.app.BaseApp;
 import cn.wildfire.chat.app.MyApp;
-import cn.wildfirechat.chat.R;
 
 //import static io.rong.imlib.statistics.Statistics.TAG;
 

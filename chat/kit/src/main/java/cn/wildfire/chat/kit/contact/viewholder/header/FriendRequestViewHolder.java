@@ -17,6 +17,9 @@ import cn.wildfirechat.remote.ChatManager;
 @SuppressWarnings("unused")
 @LayoutRes(resId = R2.layout.contact_header_friend)
 public class FriendRequestViewHolder extends HeaderViewHolder<FriendRequestValue> {
+
+    public static final int layoutRes = R.layout.contact_header_friend;
+
     @BindView(R2.id.unreadFriendRequestCountTextView)
     TextView unreadRequestCountTextView;
     private FriendRequestValue value;

@@ -1,6 +1,7 @@
 package cn.wildfire.chat.app;
 
 import android.app.ActivityManager;
+import android.app.Application;
 import android.content.Context;
 
 import com.tencent.bugly.crashreport.CrashReport;
@@ -10,7 +11,6 @@ import java.io.File;
 import cn.wildfire.chat.app.third.location.viewholder.LocationMessageContentViewHolder;
 import cn.wildfire.chat.kit.WfcUIKit;
 import cn.wildfire.chat.kit.conversation.message.viewholder.MessageViewHolderManager;
-import cn.wildfirechat.chat.BuildConfig;
 import cn.wildfirechat.push.PushService;
 
 public class MyApp extends BaseApp {
@@ -28,16 +28,22 @@ public class MyApp extends BaseApp {
         }
         // 只在主进程初始化
         if (getCurProcessName(this).equals(APPLICATION_ID)) {
-            WfcUIKit wfcUIKit = WfcUIKit.getWfcUIKit();
-            wfcUIKit.init(this);
-            wfcUIKit.setAppServiceProvider(AppService.Instance());
-            PushService.init(this, APPLICATION_ID);
-            MessageViewHolderManager.getInstance().registerMessageViewHolder(LocationMessageContentViewHolder.class);
-            setupWFCDirs();
+            initChatApp(this);
         }
     }
 
-    private void setupWFCDirs() {
+    public static void initChatApp(Application app) {
+        setContext(app);
+
+        WfcUIKit wfcUIKit = WfcUIKit.getWfcUIKit();
+        wfcUIKit.init(app);
+        wfcUIKit.setAppServiceProvider(AppService.Instance());
+        PushService.init(app, APPLICATION_ID);
+        MessageViewHolderManager.getInstance().registerMessageViewHolder(LocationMessageContentViewHolder.class);
+        setupWFCDirs();
+    }
+
+    private static void setupWFCDirs() {
         File file = new File(Config.VIDEO_SAVE_DIR);
         if (!file.exists()) {
             file.mkdirs();

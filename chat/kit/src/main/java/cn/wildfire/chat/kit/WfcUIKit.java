@@ -55,6 +55,8 @@ import cn.wildfirechat.remote.OnReceiveMessageListener;
 
 public class WfcUIKit implements AVEngineKit.AVEngineCallback, OnReceiveMessageListener, OnRecallMessageListener {
 
+    private static final String TAG = "WfcUIKit";
+
     private boolean isBackground = true;
     private Application application;
     private static ViewModelProvider viewModelProvider;
@@ -74,6 +76,7 @@ public class WfcUIKit implements AVEngineKit.AVEngineCallback, OnReceiveMessageL
     }
 
     public void init(Application application) {
+        Log.d(TAG, "init() called with: application = [" + application + "]");
         this.application = application;
         initWFClient(application);
         initMomentClient(application);

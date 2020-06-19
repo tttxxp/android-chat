@@ -32,7 +32,6 @@ import java.text.DecimalFormat;
 import java.util.Comparator;
 
 import cn.wildfire.chat.app.MyApp;
-import cn.wildfirechat.chat.BuildConfig;
 import okhttp3.ResponseBody;
 
 public class FileUtils {

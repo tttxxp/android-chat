@@ -28,7 +28,6 @@ import androidx.core.app.NotificationCompat;
 
 import cn.wildfire.chat.app.MyApp;
 import cn.wildfirechat.avenginekit.AVEngineKit;
-import cn.wildfirechat.chat.BuildConfig;
 import cn.wildfirechat.chat.R;
 import cn.wildfirechat.model.Conversation;
 

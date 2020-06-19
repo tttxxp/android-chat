@@ -40,15 +40,15 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
-<!--
-    android:name="cn.wildfire.chat.app.MyApp"
-    android:theme="@style/AppTheme"
--->
-    <application
+    <!--
+        android:name="cn.wildfire.chat.app.MyApp"
+        android:theme="@style/AppTheme"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+    -->
+    <application
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
 
@@ -194,12 +194,12 @@
         <activity
             android:name="cn.wildfire.chat.kit.channel.CreateChannelActivity"
             android:label="创建频道"
-            android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan|stateHidden|adjustResize" />
 
         <activity android:name="cn.wildfire.chat.kit.channel.ChannelInfoActivity" />
         <activity
             android:name="cn.wildfire.chat.app.main.MainActivity"
+            android:theme="@style/AppTheme"
             android:label="野火IM"
             android:launchMode="singleTask">
             <intent-filter>

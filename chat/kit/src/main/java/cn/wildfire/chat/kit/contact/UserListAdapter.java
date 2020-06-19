@@ -1,5 +1,6 @@
 package cn.wildfire.chat.kit.contact;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,7 @@ import cn.wildfire.chat.kit.contact.model.UIUserInfo;
 import cn.wildfire.chat.kit.contact.viewholder.UserViewHolder;
 import cn.wildfire.chat.kit.contact.viewholder.footer.FooterViewHolder;
 import cn.wildfire.chat.kit.contact.viewholder.header.HeaderViewHolder;
+import cn.wildfire.chat.kit.utils.R2Utils;
 import cn.wildfirechat.chat.R;
 
 public class UserListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -72,8 +75,13 @@ public class UserListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (viewType < TYPE_CONTACT) {
             HeaderValueWrapper wrapper = headerValues.get(viewType);
             LayoutRes layoutRes = wrapper.headerViewHolderClazz.getAnnotation(LayoutRes.class);
-            itemView = LayoutInflater.from(fragment.getActivity()).inflate(layoutRes.resId(), parent, false);
+            Log.i("UserListAdapter", "headerViewHolderClazz: " + wrapper.headerViewHolderClazz.getName());
+            int resId = R2Utils.LAYOUT_ARRAY.get(layoutRes.resId());
+            itemView = LayoutInflater.from(fragment.getActivity()).inflate(resId, parent, false);
             try {
+//                Field field = wrapper.headerViewHolderClazz.getDeclaredField("layoutRes");
+//                int layout = field.getInt(null);
+//                itemView = LayoutInflater.from(fragment.getActivity()).inflate(layout, parent, false);
                 Constructor constructor = wrapper.headerViewHolderClazz.getConstructor(Fragment.class, UserListAdapter.class, View.class);
                 viewHolder = (HeaderViewHolder) constructor.newInstance(fragment, this, itemView);
             } catch (Exception e) {
@@ -92,7 +100,8 @@ public class UserListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         } else {
             FooterValueWrapper wrapper = footerValues.get(viewType - TYPE_FOOTER_START_INDEX);
             LayoutRes layoutRes = wrapper.footerViewHolderClazz.getAnnotation(LayoutRes.class);
-            itemView = LayoutInflater.from(fragment.getActivity()).inflate(layoutRes.resId(), parent, false);
+            int resId = R2Utils.LAYOUT_ARRAY.get(layoutRes.resId());
+            itemView = LayoutInflater.from(fragment.getActivity()).inflate(resId, parent, false);
             try {
                 Constructor constructor = wrapper.footerViewHolderClazz.getConstructor(Fragment.class, UserListAdapter.class, View.class);
                 viewHolder = (FooterViewHolder) constructor.newInstance(fragment, this, itemView);

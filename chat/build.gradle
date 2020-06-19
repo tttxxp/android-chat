@@ -20,7 +20,7 @@ android {
 //        buildConfigField("String", "BuglyId", '"34490ba79f"')
 
         ndk {
-            abiFilters "armeabi-v7a", 'x86', 'x86_64' // ，'armeabi', 'arm64-v8a', 'x86', 'x86_64'
+            abiFilters "armeabi-v7a" //, 'x86', 'x86_64' ，'armeabi', 'arm64-v8a', 'x86', 'x86_64'
         }
     }
     buildTypes {
@@ -98,10 +98,10 @@ dependencies {
     def lifecycle_version = '2.2.0'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
-    implementation project(':client')
-    implementation project(':avenginekit')
-    implementation project(':emojilibrary')
-    implementation project(':imagepicker')
+    api project(':client')
+    api project(':avenginekit')
+    api project(':emojilibrary')
+    api project(':imagepicker')
 //    implementation project(':momentclient')
 
     implementation 'com.king.zxing:zxing-lite:1.1.1'
