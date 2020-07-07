@@ -262,7 +262,7 @@ public class ConversationMessageAdapter extends RecyclerView.Adapter<RecyclerVie
         if (NotificationMessageContentViewHolder.class.isAssignableFrom(viewHolderClazz)) {
             itemView = LayoutInflater.from(fragment.getContext()).inflate(R.layout.conversation_item_notification_containr, parent, false);
             viewStub = itemView.findViewById(R.id.contentViewStub);
-            viewStub.setLayoutResource(layoutRes.resId());
+            viewStub.setLayoutResource(R2Utils.LAYOUT_ARRAY.get(layoutRes.resId()));
         } else {
             if (direction == 0) {
                 itemView = LayoutInflater.from(fragment.getContext()).inflate(R.layout.conversation_item_message_container_send, parent, false);

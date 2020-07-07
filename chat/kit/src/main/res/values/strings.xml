@@ -7,6 +7,7 @@
     <string name="set_conversation_to_top">置顶聊天</string>
 
     <!--联系人-->
+    <string name="contacts">通讯录</string>
     <string name="new_friend">新的朋友</string>
     <string name="group_cheat">群聊</string>
 

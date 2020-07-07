@@ -36,8 +36,8 @@ public class ConversationListFragment extends ProgressFragment {
         Conversation.ConversationType.Channel);
     private static final List<Integer> lines = Arrays.asList(0);
 
-    private ConversationListViewModel conversationListViewModel;
-    private SettingViewModel settingViewModel;
+    protected ConversationListViewModel conversationListViewModel;
+    protected SettingViewModel settingViewModel;
     private LinearLayoutManager layoutManager;
 
     @Override
