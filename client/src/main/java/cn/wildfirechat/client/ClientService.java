@@ -1157,7 +1157,6 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
                 uploadMedia(fileName, data, mediaType, callback);
             } catch (Exception e) {
                 e.printStackTrace();
-                e.printStackTrace();
                 callback.onFailure(ErrorCode.FILE_NOT_EXIST);
             }
         }

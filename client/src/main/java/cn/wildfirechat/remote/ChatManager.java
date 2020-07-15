@@ -143,9 +143,9 @@ public class ChatManager {
 
 
     // key = userId
-    private LruCache<String, UserInfo> userInfoCache;
+    private LruCache<String, UserInfo> userInfoCache = new LruCache<>(1024);
     // key = memberId@groupId
-    private LruCache<String, GroupMember> groupMemberCache;
+    private LruCache<String, GroupMember> groupMemberCache = new LruCache<>(1024);
 
     public enum SearchUserType {
         //模糊搜索displayName，精确搜索name或电话号码

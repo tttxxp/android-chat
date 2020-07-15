@@ -3,6 +3,8 @@ package cn.wildfire.chat.kit.contact;
 import android.content.Intent;
 import android.view.View;
 
+import androidx.fragment.app.FragmentActivity;
+
 import cn.wildfire.chat.app.main.MainActivity;
 import cn.wildfire.chat.kit.channel.ChannelListActivity;
 import cn.wildfire.chat.kit.contact.model.ContactCountFooterValue;
@@ -75,7 +77,10 @@ public class ContactListFragment extends BaseUserListFragment implements QuickIn
     public void onHeaderClick(int index) {
         switch (index) {
             case 0:
-                ((MainActivity) getActivity()).hideUnreadFriendRequestBadgeView();
+                FragmentActivity activity = getActivity();
+                if (activity instanceof MainActivity) {
+                    ((MainActivity) activity).hideUnreadFriendRequestBadgeView();
+                }
                 showFriendRequest();
                 break;
             case 1:

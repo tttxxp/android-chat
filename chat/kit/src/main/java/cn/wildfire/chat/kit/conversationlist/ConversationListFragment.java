@@ -154,7 +154,7 @@ public class ConversationListFragment extends ProgressFragment {
         }
     }
 
-    private void reloadConversations() {
+    protected void reloadConversations() {
         if (ChatManager.Instance().getConnectionStatus() == ConnectionStatus.ConnectionStatusReceiveing) {
             return;
         }
