@@ -1,8 +1,11 @@
 package cn.wildfire.chat.app;
 
+import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.core.content.ContextCompat;
 
 /**
  * Created by heavyrain lee on 2017/11/24.
@@ -33,10 +36,10 @@ public interface Config {
     int MAX_VIDEO_PARTICIPANT_COUNT = 9;
     int MAX_AUDIO_PARTICIPANT_COUNT = 9;
 
-    String VIDEO_SAVE_DIR = Environment.getExternalStorageDirectory().getPath() + "/wfc/video";
-    String AUDIO_SAVE_DIR = Environment.getExternalStorageDirectory().getPath() + "/wfc/audio";
-    String PHOTO_SAVE_DIR = Environment.getExternalStorageDirectory().getPath() + "/wfc/photo";
-    String FILE_SAVE_DIR = Environment.getExternalStorageDirectory().getPath() + "/wfc/file";
+//    String VIDEO_SAVE_DIR = Environment.getExternalStorageDirectory().getPath() + "/wfc/video";
+//    String AUDIO_SAVE_DIR = Environment.getExternalStorageDirectory().getPath() + "/wfc/audio";
+//    String PHOTO_SAVE_DIR = Environment.getExternalStorageDirectory().getPath() + "/wfc/photo";
+//    String FILE_SAVE_DIR = Environment.getExternalStorageDirectory().getPath() + "/wfc/file";
 
     static void validateConfig() {
         if (TextUtils.isEmpty(IM_SERVER_HOST)

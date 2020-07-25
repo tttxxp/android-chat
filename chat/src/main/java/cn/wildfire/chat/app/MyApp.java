@@ -17,6 +17,11 @@ public class MyApp extends BaseApp {
 
     public static final String APPLICATION_ID = "cn.wildfire.chat.app";
 
+    public static String VIDEO_SAVE_DIR;
+    public static String AUDIO_SAVE_DIR;
+    public static String FILE_SAVE_DIR;
+    public static String PHOTO_SAVE_DIR;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -40,23 +45,29 @@ public class MyApp extends BaseApp {
         wfcUIKit.setAppServiceProvider(AppService.Instance());
         PushService.init(app, APPLICATION_ID);
         MessageViewHolderManager.getInstance().registerMessageViewHolder(LocationMessageContentViewHolder.class);
-        setupWFCDirs();
+        setupWFCDirs(app);
     }
 
-    private static void setupWFCDirs() {
-        File file = new File(Config.VIDEO_SAVE_DIR);
+    private static void setupWFCDirs(Application app) {
+        File cacheDir = app.getCacheDir();
+        VIDEO_SAVE_DIR = new File(cacheDir, "wfc/video").getPath();
+        AUDIO_SAVE_DIR = new File(cacheDir, "wfc/audio").getPath();
+        PHOTO_SAVE_DIR = new File(cacheDir, "wfc/photo").getPath();
+        FILE_SAVE_DIR = new File(cacheDir, "wfc/file").getPath();
+
+        File file = new File(MyApp.VIDEO_SAVE_DIR);
         if (!file.exists()) {
             file.mkdirs();
         }
-        file = new File(Config.AUDIO_SAVE_DIR);
+        file = new File(MyApp.AUDIO_SAVE_DIR);
         if (!file.exists()) {
             file.mkdirs();
         }
-        file = new File(Config.FILE_SAVE_DIR);
+        file = new File(MyApp.FILE_SAVE_DIR);
         if (!file.exists()) {
             file.mkdirs();
         }
-        file = new File(Config.PHOTO_SAVE_DIR);
+        file = new File(MyApp.PHOTO_SAVE_DIR);
         if (!file.exists()) {
             file.mkdirs();
         }

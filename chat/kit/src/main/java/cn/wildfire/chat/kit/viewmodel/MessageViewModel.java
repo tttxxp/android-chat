@@ -361,15 +361,15 @@ public class MessageViewModel extends ViewModel implements OnReceiveMessageListe
         switch (((MediaMessageContent) content).mediaType) {
             case VOICE:
                 name = message.message.messageUid + ".mp3";
-                dir = Config.AUDIO_SAVE_DIR;
+                dir = MyApp.AUDIO_SAVE_DIR;
                 break;
             case FILE:
                 name = message.message.messageUid + "-" + ((FileMessageContent) message.message.content).getName();
-                dir = Config.FILE_SAVE_DIR;
+                dir = MyApp.FILE_SAVE_DIR;
                 break;
             case VIDEO:
                 name = message.message.messageUid + ".mp4";
-                dir = Config.VIDEO_SAVE_DIR;
+                dir = MyApp.VIDEO_SAVE_DIR;
                 break;
             default:
         }

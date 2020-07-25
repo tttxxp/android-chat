@@ -200,7 +200,7 @@
             android:windowSoftInputMode="adjustPan|stateHidden|adjustResize" />
 
         <activity android:name="cn.wildfire.chat.kit.channel.ChannelInfoActivity" />
-        <activity
+        <!--<activity
             android:name="cn.wildfire.chat.app.main.MainActivity"
             android:label="野火IM"
             android:launchMode="singleTask">
@@ -208,7 +208,7 @@
                 <action android:name="${applicationId}.main" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
+        </activity>-->
         <activity android:name="cn.wildfire.chat.kit.WfcWebViewActivity">
             <intent-filter>
                 <action android:name="${applicationId}.webview" />

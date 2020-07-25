@@ -147,7 +147,7 @@ public class UserInfoFragment extends Fragment {
             .apply(requestOptions)
             .into(portraitImageView);
         nameTextView.setText(userViewModel.getUserDisplayName(userInfo));
-        accountTextView.setText("野火ID:" + userInfo.name);
+        accountTextView.setText("用户ID:" + userInfo.name);
     }
 
     @OnClick(R2.id.chatButton)

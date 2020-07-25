@@ -1,6 +1,7 @@
 package cn.wildfire.chat.kit.utils;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -65,6 +66,7 @@ public class DownloadManager {
                     // 下载完成
                     listener.onSuccess(file);
                 } catch (Exception e) {
+                    e.printStackTrace();
                     File file = new File(savePath, fileName);
                     if (file.exists()) {
                         file.delete();
@@ -88,12 +90,14 @@ public class DownloadManager {
         });
     }
 
+    private static final String TAG = "DownloadManager";
     /**
      * @param saveDir
      * @return
      * @throws IOException 判断下载目录是否存在
      */
     private static String isExistDir(String saveDir) throws IOException {
+        Log.d(TAG, "isExistDir() called with: saveDir = [" + saveDir + "]");
         // 下载位置
         File downloadFile = new File(saveDir);
         if (!downloadFile.mkdirs()) {
