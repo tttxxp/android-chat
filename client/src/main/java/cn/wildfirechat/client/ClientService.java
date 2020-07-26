@@ -63,8 +63,12 @@ import cn.wildfirechat.message.notification.AddGroupMemberNotificationContent;
 import cn.wildfirechat.message.notification.ChangeGroupNameNotificationContent;
 import cn.wildfirechat.message.notification.ChangeGroupPortraitNotificationContent;
 import cn.wildfirechat.message.notification.CreateGroupNotificationContent;
+import cn.wildfirechat.message.notification.DeleteMessageContent;
 import cn.wildfirechat.message.notification.DismissGroupNotificationContent;
+import cn.wildfirechat.message.notification.FriendAddedMessageContent;
+import cn.wildfirechat.message.notification.FriendGreetingMessageContent;
 import cn.wildfirechat.message.notification.GroupJoinTypeNotificationContent;
+import cn.wildfirechat.message.notification.GroupMuteMemberNotificationContent;
 import cn.wildfirechat.message.notification.GroupMuteNotificationContent;
 import cn.wildfirechat.message.notification.GroupPrivateChatNotificationContent;
 import cn.wildfirechat.message.notification.GroupSetManagerNotificationContent;
@@ -1094,6 +1098,29 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
         }
 
         @Override
+        public void getGroupInfoEx(String groupId, boolean refresh, IGetGroupCallback callback) throws RemoteException {
+            ProtoLogic.getGroupInfoEx(groupId, refresh, new ProtoLogic.IGetGroupInfoCallback() {
+                @Override
+                public void onSuccess(ProtoGroupInfo protoGroupInfo) {
+                    try {
+                        callback.onSuccess(convertProtoGroupInfo(protoGroupInfo));
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int i) {
+                    try {
+                        callback.onFailure(i);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+
+        @Override
         public UserInfo getUserInfo(String userId, String groupId, boolean refresh) throws RemoteException {
             return convertProtoUserInfo(ProtoLogic.getUserInfo(userId, groupId == null ? "" : groupId, refresh));
         }
@@ -1112,6 +1139,29 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
                 userInfos.add(userInfo);
             }
             return userInfos;
+        }
+
+        @Override
+        public void getUserInfoEx(String userId, boolean refresh, IGetUserCallback callback) throws RemoteException {
+            ProtoLogic.getUserInfoEx(userId, refresh, new ProtoLogic.IGetUserInfoCallback() {
+                @Override
+                public void onSuccess(ProtoUserInfo protoUserInfo) {
+                    try {
+                        callback.onSuccess(convertProtoUserInfo(protoUserInfo));
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int i) {
+                    try {
+                        callback.onFailure(i);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
 
         @Override
@@ -1448,13 +1498,7 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
             List<GroupMember> out = new ArrayList<>();
             for (ProtoGroupMember protoMember : protoGroupMembers) {
                 if (protoMember != null && !TextUtils.isEmpty(protoMember.getMemberId())) {
-                    GroupMember member = new GroupMember();
-                    member.groupId = groupId;
-                    member.memberId = protoMember.getMemberId();
-                    member.alias = protoMember.getAlias();
-                    member.type = GroupMember.GroupMemberType.type(protoMember.getType());
-                    member.updateDt = protoMember.getUpdateDt();
-
+                    GroupMember member = covertProtoGroupMember(protoMember);
                     out.add(member);
                 }
             }
@@ -1469,6 +1513,36 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
             } else {
                 return covertProtoGroupMember(protoGroupMember);
             }
+        }
+
+        @Override
+        public void getGroupMemberEx(String groupId, boolean forceUpdate, IGetGroupMemberCallback callback) throws RemoteException {
+            ProtoLogic.getGroupMemberEx(groupId, forceUpdate, new ProtoLogic.IGetGroupMemberCallback() {
+                @Override
+                public void onSuccess(ProtoGroupMember[] protoGroupMembers) {
+                    List<GroupMember> out = new ArrayList<>();
+                    for (ProtoGroupMember protoMember : protoGroupMembers) {
+                        if (protoMember != null && !TextUtils.isEmpty(protoMember.getMemberId())) {
+                            GroupMember member = covertProtoGroupMember(protoMember);
+                            out.add(member);
+                        }
+                    }
+                    try {
+                        callback.onSuccess(out);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int i) {
+                    try {
+                        callback.onFailure(i);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
 
         @Override
@@ -1830,6 +1904,8 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
         groupInfo.joinType = protoGroupInfo.getJoinType();
         groupInfo.privateChat = protoGroupInfo.getPrivateChat();
         groupInfo.searchable = protoGroupInfo.getSearchable();
+        groupInfo.historyMessage = protoGroupInfo.getHistoryMessage();
+        groupInfo.maxMemberCount = protoGroupInfo.getMaxMemberCount();
         return groupInfo;
     }
 
@@ -1843,6 +1919,7 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
         member.alias = protoGroupMember.getAlias();
         member.type = GroupMember.GroupMemberType.type(protoGroupMember.getType());
         member.updateDt = protoGroupMember.getUpdateDt();
+        member.createDt = protoGroupMember.getCreateDt();
         return member;
 
     }
@@ -1885,22 +1962,31 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
         UserInfo userInfo = new UserInfo();
         userInfo.uid = protoUserInfo.getUid();
         userInfo.name = protoUserInfo.getName();
-        userInfo.displayName = protoUserInfo.getDisplayName();
+
         userInfo.portrait = protoUserInfo.getPortrait();
-        userInfo.gender = protoUserInfo.getGender();
-        userInfo.mobile = protoUserInfo.getMobile();
-        userInfo.email = protoUserInfo.getEmail();
-        userInfo.address = protoUserInfo.getAddress();
-        userInfo.company = protoUserInfo.getCompany();
-        userInfo.social = protoUserInfo.getSocial();
+        userInfo.deleted = protoUserInfo.getDeleted();
+        if (protoUserInfo.getDeleted() > 0) {
+            userInfo.displayName = "已删除用户";
+        } else {
+            userInfo.displayName = protoUserInfo.getDisplayName();
+            userInfo.gender = protoUserInfo.getGender();
+            userInfo.mobile = protoUserInfo.getMobile();
+            userInfo.email = protoUserInfo.getEmail();
+            userInfo.address = protoUserInfo.getAddress();
+            userInfo.company = protoUserInfo.getCompany();
+            userInfo.social = protoUserInfo.getSocial();
+        }
+
         userInfo.extra = protoUserInfo.getExtra();
         userInfo.updateDt = protoUserInfo.getUpdateDt();
         userInfo.type = protoUserInfo.getType();
         userInfo.friendAlias = protoUserInfo.getFriendAlias();
         userInfo.groupAlias = protoUserInfo.getGroupAlias();
-        userInfo.deleted = protoUserInfo.getDeleted();
+
         return userInfo;
     }
+
+
 
     private MessageContent contentOfType(int type) {
         Class<? extends MessageContent> cls = contentMapper.get(type);
@@ -2017,11 +2103,14 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
             mBinder.registerMessageContent(ModifyGroupAliasNotificationContent.class.getName());
             mBinder.registerMessageContent(QuitGroupNotificationContent.class.getName());
             mBinder.registerMessageContent(RecallMessageContent.class.getName());
+            mBinder.registerMessageContent(DeleteMessageContent.class.getName());
             mBinder.registerMessageContent(SoundMessageContent.class.getName());
             mBinder.registerMessageContent(StickerMessageContent.class.getName());
             mBinder.registerMessageContent(TextMessageContent.class.getName());
             mBinder.registerMessageContent(PTextMessageContent.class.getName());
             mBinder.registerMessageContent(TipNotificationContent.class.getName());
+            mBinder.registerMessageContent(FriendAddedMessageContent.class.getName());
+            mBinder.registerMessageContent(FriendGreetingMessageContent.class.getName());
             mBinder.registerMessageContent(TransferGroupOwnerNotificationContent.class.getName());
             mBinder.registerMessageContent(VideoMessageContent.class.getName());
             mBinder.registerMessageContent(TypingMessageContent.class.getName());
@@ -2029,6 +2118,7 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
             mBinder.registerMessageContent(GroupJoinTypeNotificationContent.class.getName());
             mBinder.registerMessageContent(GroupPrivateChatNotificationContent.class.getName());
             mBinder.registerMessageContent(GroupSetManagerNotificationContent.class.getName());
+            mBinder.registerMessageContent(GroupMuteMemberNotificationContent.class.getName());
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -2340,9 +2430,9 @@ public class ClientService extends Service implements SdtLogic.ICallBack,
 
     @Override
     public void onFriendListUpdated(String[] friendList) {
-        if (friendList == null || friendList.length == 0) {
-            return;
-        }
+//        if (friendList == null || friendList.length == 0) {
+//            return;
+//        }
         handler.post(() -> {
             int i = onFriendUpdateListenerRemoteCallbackList.beginBroadcast();
             IOnFriendUpdateListener listener;

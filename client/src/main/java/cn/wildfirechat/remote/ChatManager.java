@@ -43,8 +43,11 @@ import cn.wildfirechat.UserSource;
 import cn.wildfirechat.client.ClientService;
 import cn.wildfirechat.client.ICreateChannelCallback;
 import cn.wildfirechat.client.IGeneralCallback;
+import cn.wildfirechat.client.IGetGroupCallback;
+import cn.wildfirechat.client.IGetGroupMemberCallback;
 import cn.wildfirechat.client.IGetMessageCallback;
 import cn.wildfirechat.client.IGetRemoteMessageCallback;
+import cn.wildfirechat.client.IGetUserCallback;
 import cn.wildfirechat.client.IOnChannelInfoUpdateListener;
 import cn.wildfirechat.client.IOnConnectionStatusChangeListener;
 import cn.wildfirechat.client.IOnFriendUpdateListener;
@@ -119,6 +122,7 @@ public class ChatManager {
     private boolean startLog;
     private int connectionStatus;
     private int receiptStatus = -1; // 1, enable
+    private int userReceiptStatus = -1; //1, enable
 
     private boolean isBackground = true;
     private List<OnReceiveMessageListener> onReceiveMessageListeners = new ArrayList<>();
@@ -198,7 +202,7 @@ public class ChatManager {
     }
 
     /**
-     * 初始化，must be called from the main thread
+     * 初始化，只能在主进程调用，否则会导致重复收到消息
      * serverHost可以是IP，可以是域名，如果是域名的话只支持主域名或www域名，二级域名不支持！
      * 例如：example.com或www.example.com是支持的；xx.example.com或xx.yy.example.com是不支持的。
      *
@@ -345,7 +349,7 @@ public class ChatManager {
     }
 
     /**
-     * 消息被撤回
+     * 消息被通过server api 删除
      *
      * @param messageUid
      */
@@ -1435,9 +1439,7 @@ public class ChatManager {
     /**
      * 发送已经保存的消息
      *
-     * @param conversation
-     * @param content
-     * @param toUsers        定向发送给会话中的某些用户；为空，则发给所有人
+     * @param msg
      * @param expireDuration
      * @param callback
      */
@@ -2547,6 +2549,17 @@ public class ChatManager {
         return "<" + memberId + ">";
     }
 
+    public String getGroupMemberDisplayName(UserInfo userInfo) {
+        if (!TextUtils.isEmpty(userInfo.groupAlias)) {
+            return userInfo.groupAlias;
+        } else if (!TextUtils.isEmpty(userInfo.friendAlias)) {
+            return userInfo.friendAlias;
+        } else if (!TextUtils.isEmpty(userInfo.displayName)) {
+            return userInfo.displayName;
+        }
+        return "<" + userInfo.uid + ">";
+    }
+
     public String getUserDisplayName(UserInfo userInfo) {
         if (userInfo == null) {
             return "";
@@ -3007,6 +3020,34 @@ public class ChatManager {
         }
     }
 
+    public void getGroupInfo(String groupId, boolean refresh, GetGroupInfoCallback callback) {
+        if (!checkRemoteService()) {
+            return;
+        }
+
+        try {
+            mClient.getGroupInfoEx(groupId, refresh, new IGetGroupCallback.Stub() {
+                @Override
+                public void onSuccess(GroupInfo userInfo) throws RemoteException {
+                    if (callback != null) {
+                        mainHandler.post(() -> callback.onSuccess(userInfo));
+                    }
+                }
+
+                @Override
+                public void onFailure(int errorCode) throws RemoteException {
+                    if (callback != null) {
+                        mainHandler.post(() -> callback.onFail(errorCode));
+                    }
+                }
+            });
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+
+        }
+    }
+
     /**
      * 加入聊天室
      *
@@ -3256,6 +3297,34 @@ public class ChatManager {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void getUserInfo(String userId, boolean refresh, GetUserInfoCallback callback) {
+        if (!checkRemoteService()) {
+            if (callback != null) {
+                callback.onFail(ErrorCode.SERVICE_DIED);
+            }
+            return;
+        }
+        try {
+            mClient.getUserInfoEx(userId, refresh, new IGetUserCallback.Stub() {
+                @Override
+                public void onSuccess(UserInfo userInfo) throws RemoteException {
+                    if (callback != null) {
+                        mainHandler.post(() -> callback.onSuccess(userInfo));
+                    }
+                }
+
+                @Override
+                public void onFailure(int errorCode) throws RemoteException {
+                    if (callback != null) {
+                        mainHandler.post(() -> callback.onFail(errorCode));
+                    }
+                }
+            });
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -3954,6 +4023,32 @@ public class ChatManager {
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public void getGroupMembers(String groupId, boolean forceUpdate, GetGroupMembersCallback callback) {
+        if (!checkRemoteService()) {
+            return;
+        }
+
+        try {
+            mClient.getGroupMemberEx(groupId, forceUpdate, new IGetGroupMemberCallback.Stub() {
+                @Override
+                public void onSuccess(List<GroupMember> groupMembers) throws RemoteException {
+                    if(callback != null){
+                        mainHandler.post(()->callback.onSuccess(groupMembers));
+                    }
+                }
+
+                @Override
+                public void onFailure(int errorCode) throws RemoteException {
+                    if(callback != null){
+                        mainHandler.post(()-> callback.onFail(errorCode));
+                    }
+                }
+            });
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -4658,9 +4753,13 @@ public class ChatManager {
         if (!checkRemoteService()) {
             return false;
         }
+        if (userReceiptStatus != -1) {
+            return userReceiptStatus == 1;
+        }
 
         try {
             boolean disable = "1".equals(mClient.getUserSetting(UserSettingScope.DisableReceipt, ""));
+            userReceiptStatus = disable ? 0 : 1;
             return !disable;
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -4687,7 +4786,10 @@ public class ChatManager {
                 @Override
                 public void onSuccess() throws RemoteException {
                     if (callback != null) {
-                        mainHandler.post(() -> callback.onSuccess());
+                        mainHandler.post(() -> {
+                            userReceiptStatus = enable ? 1 : 0;
+                            callback.onSuccess();
+                        });
                     }
                 }
 

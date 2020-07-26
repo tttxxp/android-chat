@@ -17,7 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.wildfire.chat.app.WfcIntent;
+import cn.wildfire.chat.kit.WfcIntent;
 import cn.wildfire.chat.kit.WfcUIKit;
 import cn.wildfire.chat.kit.WfcWebViewActivity;
 import cn.wildfire.chat.kit.chatroom.ChatRoomListActivity;
@@ -86,8 +86,8 @@ public class DiscoveryFragment extends Fragment {
             return;
         }
         MessageViewModel messageViewModel = ViewModelProviders.of(this).get(MessageViewModel.class);
-        messageViewModel.messageLiveData().observe(this, uiMessage -> updateMomentBadgeView());
-        messageViewModel.clearMessageLiveData().observe(this, o -> updateMomentBadgeView());
+        messageViewModel.messageLiveData().observe(getViewLifecycleOwner(), uiMessage -> updateMomentBadgeView());
+        messageViewModel.clearMessageLiveData().observe(getViewLifecycleOwner(), o -> updateMomentBadgeView());
     }
 
     @OnClick(R.id.momentOptionItemView)
