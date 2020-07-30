@@ -8,10 +8,11 @@ import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.speed.base.GlideApp;
+import com.speed.base.GlideRequest;
+
 import butterknife.BindView;
 import butterknife.OnClick;
-import cn.wildfire.chat.kit.GlideApp;
-import cn.wildfire.chat.kit.GlideRequest;
 import cn.wildfire.chat.kit.annotation.EnableContextMenu;
 import cn.wildfire.chat.kit.annotation.MessageContentType;
 import cn.wildfire.chat.kit.annotation.ReceiveLayoutRes;

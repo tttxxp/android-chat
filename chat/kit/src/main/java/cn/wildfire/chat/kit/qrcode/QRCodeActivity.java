@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import com.bumptech.glide.request.target.CustomViewTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.king.zxing.util.CodeUtils;
+import com.speed.base.GlideApp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import butterknife.BindView;
-import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfirechat.chat.R;
 import cn.wildfirechat.chat.R2;

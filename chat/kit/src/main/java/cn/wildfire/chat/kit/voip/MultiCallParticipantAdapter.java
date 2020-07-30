@@ -9,9 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.speed.base.GlideApp;
+
 import java.util.List;
 
-import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfirechat.chat.R;
 import cn.wildfirechat.model.UserInfo;
 

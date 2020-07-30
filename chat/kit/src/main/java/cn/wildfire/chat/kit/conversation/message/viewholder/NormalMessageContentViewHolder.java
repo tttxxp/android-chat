@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.speed.base.GlideApp;
 
 import java.util.Map;
 
@@ -29,7 +30,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.Optional;
 import cn.wildfire.chat.kit.ChatManagerHolder;
-import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.annotation.MessageContextMenuItem;
 import cn.wildfire.chat.kit.conversation.ConversationActivity;
 import cn.wildfire.chat.kit.conversation.ConversationFragment;

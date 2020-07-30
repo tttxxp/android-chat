@@ -15,7 +15,7 @@ import cn.wildfirechat.push.PushService;
 
 public class MyApp extends BaseApp {
 
-    public static final String APPLICATION_ID = "cn.wildfire.chat.app";
+    public static final String APPLICATION_ID = "com.speed.main";
 
     public static String VIDEO_SAVE_DIR;
     public static String AUDIO_SAVE_DIR;

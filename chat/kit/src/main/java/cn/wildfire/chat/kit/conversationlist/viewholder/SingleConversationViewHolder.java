@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.speed.base.GlideApp;
 
 import cn.wildfire.chat.kit.ChatManagerHolder;
-import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.annotation.ConversationInfoType;
 import cn.wildfire.chat.kit.annotation.EnableContextMenu;
 import cn.wildfire.chat.kit.third.utils.UIUtils;

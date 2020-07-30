@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.speed.base.GlideApp;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.third.utils.TimeUtils;
 import cn.wildfire.chat.kit.user.UserViewModel;
 import cn.wildfirechat.chat.R;

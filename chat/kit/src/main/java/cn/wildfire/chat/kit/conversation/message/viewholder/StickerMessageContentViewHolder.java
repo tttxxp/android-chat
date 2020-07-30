@@ -7,8 +7,9 @@ import android.widget.ImageView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
+import com.speed.base.GlideApp;
+
 import butterknife.BindView;
-import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.annotation.EnableContextMenu;
 import cn.wildfire.chat.kit.annotation.MessageContentType;
 import cn.wildfire.chat.kit.annotation.ReceiveLayoutRes;
@@ -16,7 +17,6 @@ import cn.wildfire.chat.kit.annotation.SendLayoutRes;
 import cn.wildfire.chat.kit.conversation.ConversationFragment;
 import cn.wildfire.chat.kit.conversation.message.model.UiMessage;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
-import cn.wildfirechat.chat.R;
 import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.message.StickerMessageContent;
 

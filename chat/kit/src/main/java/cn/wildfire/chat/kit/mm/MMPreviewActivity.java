@@ -21,14 +21,13 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.github.chrisbanes.photoview.PhotoView;
+import com.speed.base.GlideApp;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-import cn.wildfire.chat.app.Config;
 import cn.wildfire.chat.app.MyApp;
-import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfire.chat.kit.third.utils.UIUtils;
 import cn.wildfire.chat.kit.utils.DownloadManager;
 import cn.wildfirechat.chat.R;

@@ -7,9 +7,10 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.speed.base.GlideApp;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.wildfire.chat.kit.GlideApp;
 import cn.wildfirechat.chat.R;
 import cn.wildfirechat.chat.R2;
 import cn.wildfirechat.model.GroupInfo;
